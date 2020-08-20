@@ -41,7 +41,7 @@ export function useScroll(dom: Dom = document): any {
   const { run: handler } = useThrottleFn((evt: Event) => {
     if (!evt.target) return
     updatePosition(evt.target as Target)
-  }, 500)
+  }, 100)
 
   if (getCurrentInstance()) {
     onMounted(() => {
