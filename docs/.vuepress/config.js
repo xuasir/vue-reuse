@@ -1,7 +1,7 @@
 const path = require('path')
 module.exports = {
-  title: 'Vue/JavaScript-utils',
-  description: 'JavaScript utils, hooks based Vue3 composition API',
+  title: 'vue-hooks',
+  description: 'vue hooks based composition API',
   plugins: ['@vuepress/back-to-top'],
   dest: 'doc-dist',
   base: process.env.DOCS_BASE || '/vue-hooks/',
@@ -13,14 +13,19 @@ module.exports = {
     }
   },
   // head: [],
-  nav: [{ text: 'vue-hooks', link: '/vue-hooks/' }],
   themeConfig: {
-    repo: 'xuguo-code/fruit',
-    docsRepo: 'xuguo-code/fruit',
+    repo: 'xuguo-code/vue-hooks',
+    docsRepo: 'xuguo-code/vue-hooks',
     logo: '/imgs/logo.png',
     docsDir: 'docs',
     editLinks: true,
     sidebarDepth: 3,
+    nav: [
+      { 
+        text: 'vue-hooks', 
+        link: '/vue-hooks/' 
+      }
+    ],
     sidebar: {
       '/': [
         '',

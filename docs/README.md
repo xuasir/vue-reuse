@@ -1,50 +1,30 @@
 ---
-title: Vue/JavaScript-utils
+title: vue-hooks
 home: true
+heroImage: /imgs/logo.png
 actionText: 开始 →
 actionLink: ./vue-hooks/
 features:
-  - title: JavaScript-toolbox
-    details: 通用的JavaScript工具函数.
-  - title: Composition Function
-    details: 利用Vue3 composition API 来构建可复用UI无关逻辑的复用函数.
-  - title: 算法和数据结构
-    details: 采用typescript实现常用算法和数据结构.
-  - title: sku算法
-    details: 抽象实现的sku算法只需要通过简单的数据结构适配即可移植到您的项目.
+  - title: Composable
+    details: 利用Vue3 composition API 来构建逻辑复用函数，极大化了逻辑的组合能力
   - title: TypeScript支持
     details: 全部采用TypeScript实现，有良好的类型推导支持
-description: JavaScript utils, hooks based Vue3 composition API
+footer: MIT License Copyright (c) 2020 happycoder
+description: vue hooks based composition API
 meta:
   - name: og:title
-    content: Vue/JavaScript-utils
+    content: vue-hooks
   - name: og:description
-    content: JavaScript utils, hooks based Vue3 composition API
+    content: vue hooks based composition API
 ---
 
-### Packages和使用
-1. `@xuguo/sku`实现sku算法  
+### 安装和使用
+* `@xuguo/vue-hooks`实现基于`Vue3 composition API`的hooks函数集  
 ```JavaScript
 // 安装依赖
-npm install @xuguo/sku
-
-// 使用
-import { createSkuSelector } from '@xuguo/sku'
-```
-
-2. `@xuguo/toolbox`实现JavaScript工具函数  
-```JavaScript
-// 安装依赖
-npm install @xuguo/toolbox
-
-// 使用
-import { isNumber } from '@xuguo/sku'
-```
-
-3. `@xuguo/vue-hooks`实现基于`Vue3 composition API`的hooks函数集  
-```JavaScript
-// 安装依赖
-npm install @xuguo/vue-hooks
+npm install @xuguo/vue-hooks @xuguo/sku vue-demi
+// 如果您使用的是vue2.x 您还需要安装
+npm install @vue/composition-api
 
 // 使用
 import { useScroll } from '@xuguo/sku'
