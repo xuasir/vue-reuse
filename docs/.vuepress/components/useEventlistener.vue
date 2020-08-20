@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>num: {{ num }}</div>
+    <div class="block">num: {{ num }}</div>
     <button ref="el">点击num + 1</button>
   </div>
 </template>
