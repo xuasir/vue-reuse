@@ -1,6 +1,7 @@
 {
   "name": "@xuguo/vue-hooks",
   "description": "composition-api hooks",
+  "version": "0.3.1",
   "main": "dist/vue.hooks.cjs.js",
   "module": "dist/vue.hooks.esm.js",
   "types": "dist/vue.hooks.d.ts",
@@ -15,7 +16,7 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "build": "node scripts/build.js",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1",
     "release": "node scripts/release.js"
   },
   "husky": {

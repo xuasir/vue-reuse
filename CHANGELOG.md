@@ -1,3 +1,7 @@
+## [0.3.1](https://github.com/xuguo-code/vue-hooks/compare/v0.3.0...v0.3.1) (2020-08-20)
+
+
+
 #  (2020-08-20)
 
 

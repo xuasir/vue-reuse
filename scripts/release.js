@@ -106,7 +106,7 @@ async function workForPublish(nextVersion) {
 
   // update version
   step(`Updating cross dependencies...`)
-  updateVersion()
+  updateVersion(nextVersion)
 
   // generate changelog
   step(`generate changelog...`)
