@@ -3,7 +3,7 @@
 > 1. 可自动在组件卸载时清除事件监听  
 > 2. 可直接采用`ref`方式监听`Dom`事件
 
-### 代码演示
+## 代码演示
 #### 基本使用  
 ---
 <use-eventlistener />
@@ -34,7 +34,7 @@ export default {
 </script>
 ```
 
-### API  
+## API  
 ```ts
 <button ref="elRef">some text</button>
 
