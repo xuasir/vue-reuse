@@ -44,7 +44,14 @@
     "@xuguo/sku": "^1.1.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/jest": "^26.0.10",
     "@vue/composition-api": "^1.0.0-beta.10",
+    "babel-jest": "^26.3.0",
+    "jest": "^26.4.0",
+    "ts-jest": "^26.2.0",
     "vuepress": "^1.5.3"
   }
 }
