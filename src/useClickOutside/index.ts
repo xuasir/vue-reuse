@@ -15,6 +15,6 @@ export function useClickOutside(
     }
     callback(event)
   }
-  useEventListener('mouseover', handler, { dom: element as Ref<HTMLElement> })
+  useEventListener('click', handler)
   return element
 }
