@@ -1,5 +1,5 @@
 import {
-  shallowReadonly,
+  // shallowReadonly,
   reactive,
   Ref,
   ref,
@@ -59,5 +59,6 @@ export function useScroll(dom: Dom = isBrowser ? document : undefined): any {
     })
   }
 
-  return [shallowReadonly(position), el]
+  return [position, el]
+  // return [shallowReadonly(position), el]
 }
