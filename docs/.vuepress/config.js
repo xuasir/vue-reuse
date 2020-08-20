@@ -37,6 +37,14 @@ module.exports = {
             ['event/useScroll', 'useScroll'],
           ],
         },
+        {
+          title: 'State',
+          collapsable: false,
+          children: [
+            ['state/useLocalStorage', 'useLocalStorage'],
+            ['state/useSessionStorage', 'useSessionStorage'],
+          ],
+        },
       ],
     },
   },
