@@ -1,0 +1,50 @@
+{
+  "name": "@xuguo/vue-hooks",
+  "version": "0.2.0",
+  "description": "composition-api hooks",
+  "main": "dist/vueHooks.cjs.js",
+  "module": "dist/vueHooks.esm.js",
+  "types": "dist/vueHooks.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint --ext .ts src/**/*",
+    "format": "prettier --write --parser typescript \"src/**/*.ts?(x)\"",
+    "cm": "git-cz",
+    "test": "jest",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "build": "node scripts/build.js",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "release": "node scripts/release.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuguo-code/vue-hooks.git"
+  },
+  "keywords": [
+    "vue",
+    "composition-api",
+    "hooks",
+    "vue3",
+    "composable"
+  ],
+  "author": "xuguo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xuguo-code/vue-hooks/issues"
+  },
+  "homepage": "https://github.com/xuguo-code/vue-hooks#readme",
+  "sideEffects": false,
+  "dependencies": {
+    "vue-demi": "^0.2.0"
+  },
+  "peerDependencies": {
+    "@xuguo/sku": "^1.1.2"
+  },
+  "devDependencies": {
+    "@vue/composition-api": "^1.0.0-beta.10",
+    "vuepress": "^1.5.3"
+  }
+}
