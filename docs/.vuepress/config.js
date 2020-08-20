@@ -33,6 +33,7 @@ module.exports = {
           collapsable: false,
           children: [
             ['event/useEventlistener', 'useEventlistener'],
+            ['event/useClickOutside', 'useClickOutside'],
           ],
         },
       ],
