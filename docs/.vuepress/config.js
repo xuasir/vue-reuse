@@ -34,6 +34,7 @@ module.exports = {
           children: [
             ['event/useEventlistener', 'useEventlistener'],
             ['event/useClickOutside', 'useClickOutside'],
+            ['event/useScroll', 'useScroll'],
           ],
         },
       ],
