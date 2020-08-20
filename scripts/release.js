@@ -129,7 +129,7 @@ async function workForPublish(nextVersion) {
 
   // publish
   step(`publish packages...`)
-  pubilshPackage()
+  pubilshPackage(nextVersion)
 
   // push and tag
   step(`push to giihub...`)
