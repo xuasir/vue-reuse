@@ -22,4 +22,3 @@ deploy:
   email: xg501@outlook.com
   on:
     tags: true
-    branch: master
