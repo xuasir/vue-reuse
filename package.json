@@ -2,9 +2,9 @@
   "name": "@xuguo/vue-hooks",
   "version": "0.2.0",
   "description": "composition-api hooks",
-  "main": "dist/vueHooks.cjs.js",
-  "module": "dist/vueHooks.esm.js",
-  "types": "dist/vueHooks.d.ts",
+  "main": "dist/vue.hooks.cjs.js",
+  "module": "dist/vue.hooks.esm.js",
+  "types": "dist/vue.hooks.d.ts",
   "files": [
     "dist"
   ],
@@ -57,11 +57,15 @@
   },
   "homepage": "https://github.com/xuguo-code/vue-hooks#readme",
   "sideEffects": false,
-  "dependencies": {
+  "external": [
+    "vue"
+  ],
+  "peerDependencies": {
+    "@xuguo/sku": "^1.1.2",
     "vue-demi": "^0.2.0"
   },
-  "peerDependencies": {
-    "@xuguo/sku": "^1.1.2"
+  "dependencies": {
+    "@vue/composition-api": "^1.0.0-beta.10"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
@@ -69,22 +73,34 @@
     "@babel/preset-typescript": "^7.10.4",
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
+    "@rollup/plugin-commonjs": "^15.0.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
     "@types/jest": "^26.0.10",
     "@typescript-eslint/eslint-plugin": "^3.9.1",
     "@typescript-eslint/parser": "^3.9.1",
-    "@vue/composition-api": "^1.0.0-beta.10",
     "@vuepress/plugin-back-to-top": "^1.5.3",
+    "@xuguo/sku": "^1.1.2",
     "babel-jest": "^26.3.0",
+    "chalk": "^4.1.0",
     "commitizen": "^4.1.2",
     "conventional-changelog-cli": "^2.1.0",
     "cz-conventional-changelog": "^3.2.0",
     "eslint": "^7.7.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-jest": "^23.20.0",
+    "execa": "^4.0.3",
+    "fs-extra": "^9.0.1",
     "jest": "^26.4.0",
     "lint-staged": "^10.2.11",
+    "minimist": "^1.2.5",
     "prettier": "^2.0.5",
+    "rollup": "^2.26.4",
+    "rollup-plugin-dts": "^1.4.10",
+    "rollup-plugin-terser": "^7.0.0",
+    "rollup-plugin-typescript2": "^0.27.2",
     "ts-jest": "^26.2.0",
+    "typescript": "^3.9.7",
+    "vue-demi": "^0.2.0",
     "vuepress": "^1.5.3"
   }
 }
