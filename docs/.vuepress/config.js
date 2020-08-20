@@ -45,6 +45,16 @@ module.exports = {
             ['state/useSessionStorage', 'useSessionStorage'],
           ],
         },
+        {
+          title: 'sideEffect',
+          collapsable: false,
+          children: [
+            ['sideEffect/useDebounceRef', 'useDebounceRef'],
+            ['sideEffect/useDebounceFn', 'useDebounceFn'],
+            ['sideEffect/useThrottleRef', 'useThrottleRef'],
+            ['sideEffect/useThrottleFn', 'useThrottleFn'],
+          ],
+        },
       ],
     },
   },
