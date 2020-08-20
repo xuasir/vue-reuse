@@ -8,6 +8,7 @@ import {
   getCurrentInstance,
 } from 'vue-demi'
 import { useThrottleFn } from '../useThrottleFn'
+import { isBrowser } from '../shared/utils'
 
 interface Pos {
   x: number
@@ -15,11 +16,11 @@ interface Pos {
 }
 
 type Target = HTMLElement | Document
-type Dom = Target | (() => Target)
+type Dom = Target | (() => Target) | undefined
 
 export function useScroll(): [Readonly<Pos>, Ref<null | Target>]
 export function useScroll(dom: Dom): [Readonly<Pos>]
-export function useScroll(dom: Dom = document): any {
+export function useScroll(dom: Dom = isBrowser ? document : undefined): any {
   const position = reactive({
     x: 0,
     y: 0,
@@ -28,6 +29,7 @@ export function useScroll(dom: Dom = document): any {
 
   let element: Target
   function updatePosition(target: Target) {
+    if (typeof target === 'undefined') return
     if (target === document) {
       if (target.scrollingElement) {
         position.x = target.scrollingElement.scrollLeft
@@ -46,8 +48,10 @@ export function useScroll(dom: Dom = document): any {
   if (getCurrentInstance()) {
     onMounted(() => {
       const element = (typeof dom === 'function' ? dom() : dom) || el.value
-      updatePosition(element)
-      element.addEventListener('scroll', handler)
+      if (element) {
+        updatePosition(element)
+        element.addEventListener('scroll', handler)
+      }
     })
 
     onUnmounted(() => {

@@ -1,5 +1,6 @@
 import { Ref } from 'vue-demi'
 import { useStorage } from '../useStorage'
+import { isBrowser, createStorage } from '../shared/utils'
 
 export function useLocalStorage(key: string, defaultValue?: undefined): Ref<any>
 export function useLocalStorage(key: string, defaultValue: null): Ref<any>
@@ -20,5 +21,9 @@ export function useLocalStorage<T extends unknown[]>(
 export function useLocalStorage<
   T extends string | number | boolean | Record<string, unknown> | [] | null
 >(key: string, initialValue: T): Ref<any> {
-  return useStorage(localStorage, key, initialValue as any)
+  return useStorage(
+    isBrowser ? localStorage : createStorage(),
+    key,
+    initialValue as any
+  )
 }
