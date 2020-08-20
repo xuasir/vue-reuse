@@ -12,6 +12,10 @@ script:
   - yarn build esm -t -s
   - yarn docs:build
 
+branches:
+  only:
+    - master
+
 deploy:
   provider: pages
   skip_cleanup: true
