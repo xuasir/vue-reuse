@@ -22,11 +22,9 @@ import { useScroll } from '@xuguo/vue-hooks'
 export default {
   name: 'use-scroll',
   setup() {
-    const num = ref(0)
     const [pos] = useScroll()
     return {
       pos,
-      elRef,
     }
   },
 }
@@ -40,7 +38,7 @@ export default {
 <div class="block">scroll Y: {{ pos.y }}</div>
 
 const [pos, elRef] = useScroll()
-const [pos] = useScroll(dom)
+const [pos] = useScroll(dom?)
 ```
 
 ### RetrunValue
