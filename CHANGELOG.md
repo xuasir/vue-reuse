@@ -1,3 +1,13 @@
+## [0.3.2](https://github.com/xuguo-code/vue-hooks/compare/v0.3.1...v0.3.2) (2020-08-20)
+
+
+### Bug Fixes
+
+* 调整usescroll节流时长为100ms ([f555efe](https://github.com/xuguo-code/vue-hooks/commit/f555efe120534066b1509b707ff4b5be25c16078))
+* 修复clickoutside事件绑定错误 ([e13acdf](https://github.com/xuguo-code/vue-hooks/commit/e13acdfa7d0e2d112b34ea916770e60308c3c7f7))
+
+
+
 ## [0.3.1](https://github.com/xuguo-code/vue-hooks/compare/v0.3.0...v0.3.1) (2020-08-20)
 
 
