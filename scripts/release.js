@@ -3,6 +3,7 @@ const execa = require('execa')
 const chalk = require('chalk')
 const { prompt } = require('enquirer')
 const path = require('path')
+const fs = require('fs')
 const args = require('minimist')(process.argv.slice(2))
 
 const skipTests = args.skipTests || args.st
@@ -103,6 +104,10 @@ async function workForPublish(nextVersion) {
     console.log(`(skipped)`)
   }
 
+  // update version
+  step(`Updating cross dependencies...`)
+  updateVersion()
+
   // generate changelog
   step(`generate changelog...`)
   await run('yarn', ['changelog'])
@@ -133,6 +138,13 @@ async function workForPublish(nextVersion) {
   await run('git', ['push', 'origin', 'master'])
 
   console.log()
+}
+
+function updateVersion(nextVersion) {
+  const pkgJsonPath = resolve('package.json')
+  const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath, 'utf-8'))
+  pkgJson.version = nextVersion
+  fs.writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2))
 }
 
 async function pubilshPackage(nextVersion) {
