@@ -19,30 +19,20 @@ module.exports = {
     logo: '/imgs/logo.png',
     docsDir: 'docs',
     editLinks: true,
-    sidebarDepth: 3,
     nav: [
-      { 
-        text: 'vue-hooks', 
-        link: '/vue-hooks/' 
+      {
+        text: '指南',
+        link: '/info/'
       }
     ],
     sidebar: {
       '/': [
-        '',
+        ['info/', '指南'],
         {
-          title: 'vue-hooks',
-          sidebarDepth: 2,
+          title: 'Event',
           collapsable: false,
           children: [
-            ['vue-hooks/', '介绍'],
-            {
-              title: 'Event',
-              sidebarDepth: 1,
-              collapsable: false,
-              children: [
-                ['vue-hooks/event/useEventlistener', 'useEventlistener'],
-              ],
-            },
+            ['event/useEventlistener', 'useEventlistener'],
           ],
         },
       ],

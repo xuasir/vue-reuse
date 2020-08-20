@@ -3,7 +3,7 @@ title: vue-hooks
 home: true
 heroImage: /imgs/logo.png
 actionText: 开始 →
-actionLink: ./vue-hooks/
+actionLink: ./info/
 features:
   - title: Composable
     details: 利用Vue3 composition API 来构建逻辑复用函数，极大化了逻辑的组合能力
