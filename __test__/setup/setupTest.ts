@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-let state = {}
+let state: Record<string, any> = {}
 
 const localStorageMock = {
   getItem: jest.fn((x) => state[x]),
