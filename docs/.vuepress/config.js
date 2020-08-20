@@ -1,9 +1,17 @@
+const path = require('path')
 module.exports = {
   title: 'Vue/JavaScript-utils',
   description: 'JavaScript utils, hooks based Vue3 composition API',
   plugins: ['@vuepress/back-to-top'],
   dest: 'dist',
   base: process.env.DOCS_BASE || '/fruit/',
+  configureWebpack: {
+    resolve: {
+      alias: {
+        '@xuguo/vue-hooks': path.resolve(__dirname, '../../dist/vue.hooks.esm.js')
+      }
+    }
+  },
   // head: [],
   nav: [{ text: 'vue-hooks', link: '/vue-hooks/' }],
   themeConfig: {
