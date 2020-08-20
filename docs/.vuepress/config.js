@@ -4,7 +4,7 @@ module.exports = {
   description: 'JavaScript utils, hooks based Vue3 composition API',
   plugins: ['@vuepress/back-to-top'],
   dest: 'doc-dist',
-  base: process.env.DOCS_BASE || '/fruit/',
+  base: process.env.DOCS_BASE || '/vue-hooks/',
   configureWebpack: {
     resolve: {
       alias: {
