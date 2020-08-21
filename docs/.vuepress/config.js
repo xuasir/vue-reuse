@@ -36,6 +36,13 @@ module.exports = {
           ],
         },
         {
+          title: 'work',
+          collapsable: false,
+          children: [
+            ['work/useSku', 'useSku'],
+          ],
+        },
+        {
           title: 'Event',
           collapsable: false,
           children: [
