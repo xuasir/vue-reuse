@@ -18,19 +18,19 @@
 const elRef = useEventListener(eventType, handler, options?)
 ```
 
-### RetrunValue
+#### RetrunValue
 | 参数 | 说明 | 类型 |
 | --- | --- | --- |
 | `elRef` | 一个指定事件绑定元素的`ref`对象 | `Ref<null | HTMLElement>` |
 
-### Params
+#### Params
 | 参数 | 说明 | 类型 |
 | --- | --- | --- |
 | `eventType` | 传递需要监听的事件类型 | `keyof WindowEventMap | keyof HTMLElementEventMap` |
 | `handler` | 监听事件的回调函数 | `(evt: WindowEventMap[key] | HTMLElementEventMap[key]) => any` |
 | `options` | 监听事件参数 | `{ dom?: TargetType } & Partial<AddEventListenerOptions>` |
 
-### Options 
+#### Options 
 | 参数 | 说明 | 类型 |
 | --- | --- | --- |
 | `dom` | 接收绑定监听的元素，优先级高于`elRef` | `HTMLElement | Ref<HTMLElement> | () => HTMLElement | Window` |
