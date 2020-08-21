@@ -15,6 +15,6 @@ export function useClickOutside(
     }
     callback(event)
   }
-  useEventListener('click', handler)
+  useEventListener('click', handler, { capture: false })
   return element
 }
