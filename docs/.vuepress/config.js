@@ -18,7 +18,7 @@ module.exports = {
     docsRepo: 'xuguo-code/vue-hooks',
     logo: '/imgs/logo.png',
     docsDir: 'docs',
-    editLinks: true,
+    editLinks: false,
     nav: [
       {
         text: '指南',
@@ -28,6 +28,13 @@ module.exports = {
     sidebar: {
       '/': [
         ['info/', '指南'],
+        {
+          title: 'UI',
+          collapsable: false,
+          children: [
+            ['UI/useDrop', 'useDrop'],
+          ],
+        },
         {
           title: 'Event',
           collapsable: false,
