@@ -6,33 +6,11 @@
 
 ## 代码演示
 #### 基本使用  
----
 <use-throttle-ref />
 #### 代码  
----
-```vue
-<template>
-  <div>
-    <input type="text" @input="(e) => (rawRef = e.target.value)" />
-    <div class="block">throttle Ref: {{ throttleRef }}</div>
-  </div>
-</template>
-<script>
-import { ref } from '@vue/composition-api'
-import { useThrottleRef } from '@xuguo/vue-hooks'
-export default {
-  name: 'use-throttle-ref',
-  setup() {
-    const rawRef = ref('')
-    const throttleRef = useThrottleRef(rawRef, 500)
-    return {
-      throttleRef,
-      rawRef,
-    }
-  },
-}
-</script>
-```
+::: details 点击查看代码
+<<< @/docs/.vuepress/components/useThrottleRef.vue
+:::
 
 
 ## API  

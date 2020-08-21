@@ -6,35 +6,15 @@
 
 ## 代码演示
 #### 基本使用  
----
+::: tip
+1. 数据将会持久化的存储在`localstorage`，刷新页面依旧能保持
+2. 将`num`设置成`undefined`时会自动清除`localstorage`的存储
+:::
 <use-local-storage />
 #### 代码  
----
-```vue
-<template>
-  <div>
-    <div class="block">{{ num }}</div>
-    <button @click="add">点击 num + 1</button>
-  </div>
-</template>
-<script>
-import { ref } from '@vue/composition-api'
-import { useLocalStorage } from '@xuguo/vue-hooks'
-export default {
-  name: 'use-local-storage',
-  setup() {
-    const num = useLocalStorage('test', 1)
-    function add() {
-      num.value += 1
-    }
-    return {
-      num,
-      add,
-    }
-  },
-}
-</script>
-```
+::: details 点击查看代码
+<<< @/docs/.vuepress/components/useLocalStorage.vue
+:::
 
 
 ## API  
