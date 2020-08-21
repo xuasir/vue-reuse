@@ -6,33 +6,11 @@
 
 ## 代码演示
 #### 基本使用  
----
 <use-debounce-ref />
 #### 代码  
----
-```vue
-<template>
-  <div>
-    <input type="text" @input="(e) => (rawRef = e.target.value)" />
-    <div class="block">debounce Ref: {{ debounceRef }}</div>
-  </div>
-</template>
-<script>
-import { ref } from '@vue/composition-api'
-import { useDebounceRef } from '@xuguo/vue-hooks'
-export default {
-  name: 'use-debounce-ref',
-  setup() {
-    const rawRef = ref('')
-    const debounceRef = useDebounceRef(rawRef, 500)
-    return {
-      debounceRef,
-      rawRef,
-    }
-  },
-}
-</script>
-```
+::: details 点击查看代码
+<<< @/docs/.vuepress/components/useDebounceRef.vue
+:::
 
 
 ## API  

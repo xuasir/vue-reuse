@@ -5,35 +5,11 @@
 
 ## 代码演示
 #### 基本使用  
----
 <use-click-outside />
 #### 代码  
----
-```vue
-<template>
-  <div>
-    <div class="block">{{ num }}</div>
-    <button ref="elRef">点击外部 num + 1</button>
-  </div>
-</template>
-<script>
-import { ref } from '@vue/composition-api'
-import { useClickOutside } from '@xuguo/vue-hooks'
-export default {
-  name: 'use-click-outside',
-  setup() {
-    const num = ref(0)
-    const elRef = useClickOutside(() => {
-      num.value++
-    })
-    return {
-      num,
-      elRef,
-    }
-  },
-}
-</script>
-```
+::: details 点击查看代码
+<<< @/docs/.vuepress/components/useClickOutside.vue
+:::
 
 
 ## API  

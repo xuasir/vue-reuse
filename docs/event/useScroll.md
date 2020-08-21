@@ -6,30 +6,11 @@
 
 ## 代码演示
 #### 基本使用  
----
 <use-scroll />
 #### 代码  
----
-```vue
-<template>
-  <div>
-    <div class="block">document scroll X: {{ pos.x }}</div>
-    <div class="block">document scroll Y: {{ pos.y }}</div>
-  </div>
-</template>
-<script>
-import { useScroll } from '@xuguo/vue-hooks'
-export default {
-  name: 'use-scroll',
-  setup() {
-    const [pos] = useScroll()
-    return {
-      pos,
-    }
-  },
-}
-</script>
-```
+::: details 点击查看代码
+<<< @/docs/.vuepress/components/useScroll.vue
+:::
 
 
 ## API  
