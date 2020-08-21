@@ -15,13 +15,13 @@
 const { run, cancel } = useDebounceFn(func, wait):
 ```
 
-### RetrunValue
+#### RetrunValue
 | 参数 | 说明 | 类型 |
 | --- | --- | --- |
 | `run` | 代理原函数的新`debounce`函数 | `function` |
 | `cancel` | 在`wait`时间到达之前，提供一个取消当前`run`的方法 | `function` |
 
-### Params
+#### Params
 | 参数 | 说明 | 类型 |
 | --- | --- | --- |
 | `func` | 原始的函数 | `function` |
