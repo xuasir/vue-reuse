@@ -8,18 +8,14 @@
         @dragleave="dropProps.onDragLeave"
         @drop="dropProps.onDrop"
         @paste="dropProps.onPaste"
-      >
-        ---- {{ isHovering ? 'hovering' : 'Drop to here ' }} ----
-      </div>
+      >---- {{ isHovering ? 'hovering' : 'Drop to here ' }} ----</div>
       <span
         class="drag-item"
         v-for="item in [1, 2, 3, 4, 5]"
         :key="dragProps.key(item)"
         :draggable="dragProps.draggable"
         @dragstart="(e) => dragProps.onDragStart(item)(e)"
-      >
-        item {{ item }}
-      </span>
+      >item {{ item }}</span>
     </div>
     <div class="right">{{ msg }}</div>
   </div>
@@ -61,14 +57,7 @@ export default {
 }
 </script>
 <style scoped>
-.wrap {
-  display: flex;
-}
 .right {
-  display: inline-flex;
-  flex: 1;
-  justify-content: center;
-  align-items: center;
   color: #3eaf7c;
   font-weight: 500;
 }
