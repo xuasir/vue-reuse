@@ -59,7 +59,11 @@ export function useDrop(
       options.onUri(uri, evt as DragEvent)
       return
     }
-    if (dataTransfer.files && options?.onFiles) {
+    if (
+      dataTransfer.files &&
+      dataTransfer.files.length > 0 &&
+      options?.onFiles
+    ) {
       options.onFiles([...dataTransfer.files], evt as DragEvent)
       return
     }
