@@ -51,14 +51,17 @@ export function useDrop(
   const callback: CallbackFn = (dataTransfer, evt) => {
     const uri = dataTransfer?.getData('text/uri-list')
     const dom = dataTransfer?.getData('custom')
-    if (uri && options?.onUri) {
-      options.onUri(uri, evt as DragEvent)
-    }
     if (dom && options?.onDom) {
       options.onDom(dom, evt as DragEvent)
+      return
+    }
+    if (uri && options?.onUri) {
+      options.onUri(uri, evt as DragEvent)
+      return
     }
     if (dataTransfer.files && options?.onFiles) {
       options.onFiles([...dataTransfer.files], evt as DragEvent)
+      return
     }
     if (
       dataTransfer.items &&
@@ -68,6 +71,7 @@ export function useDrop(
       dataTransfer.items[0].getAsString((text) => {
         options.onText!(text, evt as ClipboardEvent)
       })
+      return
     }
   }
   return [getProps(callback, isHovering), computed(() => isHovering.value)]
