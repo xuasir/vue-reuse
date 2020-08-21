@@ -48,6 +48,7 @@ module.exports = {
           title: 'State',
           collapsable: false,
           children: [
+            ['state/useHistoryTravel', 'useHistoryTravel'],
             ['state/useLocalStorage', 'useLocalStorage'],
             ['state/useSessionStorage', 'useSessionStorage'],
           ],
