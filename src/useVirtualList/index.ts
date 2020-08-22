@@ -9,6 +9,7 @@ import {
   reactive,
   isReactive,
   WatchStopHandle,
+  onMounted,
 } from 'vue-demi'
 import { useThrottleFn } from 'src/useThrottleFn'
 type ReturnValue<T> = {
@@ -147,6 +148,11 @@ export function useVirtualList<T>(list: T[], options: Options): ReturnValue<T> {
   }
 
   if (getCurrentInstance()) {
+    onMounted(() => {
+      // init计算
+      calculateRange()
+    })
+
     onUnmounted(() => {
       stopWatchListLen && stopWatchListLen()
     })
