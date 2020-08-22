@@ -7,18 +7,22 @@ import {
   getCurrentInstance,
   onUnmounted,
   reactive,
+  isReactive,
+  WatchStopHandle,
 } from 'vue-demi'
+import { useThrottleFn } from 'src/useThrottleFn'
 type ReturnValue<T> = {
   list: ComputedRef<{ data: T; index: number }[]>
   wrapperProps: {
     style: {
       width: '100%'
-      height: Ref<number>
-      paddingTopRef: ComputedRef<number>
+      boxSizing: 'border-box'
+      height: string
+      paddingTop: string
     }
   }
+  containeRef: Ref<null | HTMLElement>
   containeProps: {
-    containeRef: Ref<null | HTMLElement>
     onScroll(evt: Event): void
     style: { overflowY: 'auto' }
   }
@@ -57,18 +61,28 @@ export function useVirtualList<T>(list: T[], options: Options): ReturnValue<T> {
         .reduce((sum, _, index) => sum + itemHeight(index), 0)
     }
   }
-  const stopWatchListLen = watch(
-    () => list.length,
-    (newLen, oldLen) => {
-      if (newLen !== oldLen) {
-        totalHeightRef.value = getHeight(list.length)
-      }
-    },
-    { immediate: true, flush: 'sync' }
-  )
+  // init totalheight
+  totalHeightRef.value = getHeight(list.length)
+  // 监听list 重置totalheight
+  let stopWatchListLen: null | WatchStopHandle = null
+  if (isReactive(list)) {
+    stopWatchListLen = watch(
+      () => list.length,
+      (newLen, oldLen) => {
+        if (newLen !== oldLen) {
+          totalHeightRef.value = getHeight(list.length)
+        }
+      },
+      { flush: 'sync' }
+    )
+  }
+
   // scroll to
   function scrollTo(index: number): void {
     if (el.value) {
+      // 边界情况
+      index < 0 && (index = 0)
+      index > list.length && (index = list.length)
       el.value.scrollTop = getHeight(index)
       // 计算list
       calculateRange()
@@ -86,10 +100,16 @@ export function useVirtualList<T>(list: T[], options: Options): ReturnValue<T> {
       // 设置
       const from = offset - overscan
       const to = offset + viewCapacity + overscan
+      const currentLen = list.length
+      // 到达列表最末端时候不需要再修改
+      if (to >= currentLen && listState.end === currentLen) return
       listState.start = from < 0 ? 0 : from
-      listState.end = to > list.length ? list.length : to
+      listState.end = to > currentLen ? currentLen : to
+      paddingTopRef.value = getHeight(listState.start)
     }
   }
+  // throttle
+  const { run: runCalcelateRange } = useThrottleFn(calculateRange, 80)
 
   function getOffset(top: number): number {
     if (typeof itemHeight === 'number') {
@@ -97,9 +117,10 @@ export function useVirtualList<T>(list: T[], options: Options): ReturnValue<T> {
     } else {
       let sum = 0
       let offset = 0
-      for (let i = 0; i < list.length; i++) {
+      const len = list.length
+      for (let i = 0; i < len; i++) {
         sum += itemHeight(i)
-        if (sum > top) {
+        if (sum >= top) {
           offset = i
           break
         }
@@ -114,7 +135,7 @@ export function useVirtualList<T>(list: T[], options: Options): ReturnValue<T> {
     } else {
       let sum = 0
       let capacity = 0
-      for (let i = listState.start; i < list.length; i++) {
+      for (let i = listState.start + overscan; i < list.length; i++) {
         sum += itemHeight(i)
         if (sum > height) {
           capacity = i
@@ -127,24 +148,25 @@ export function useVirtualList<T>(list: T[], options: Options): ReturnValue<T> {
 
   if (getCurrentInstance()) {
     onUnmounted(() => {
-      stopWatchListLen()
+      stopWatchListLen && stopWatchListLen()
     })
   }
 
   return {
     list: listRef,
-    wrapperProps: {
+    wrapperProps: reactive({
       style: {
         width: '100%' as const,
-        height: totalHeightRef,
-        paddingTopRef: computed(() => paddingTopRef.value),
+        boxSizing: 'border-box' as const,
+        height: computed(() => `${totalHeightRef.value}px`),
+        paddingTop: computed(() => `${paddingTopRef.value}px`),
       },
-    },
+    }),
+    containeRef: el,
     containeProps: {
-      containeRef: el,
       onScroll(e) {
         e.preventDefault()
-        calculateRange()
+        runCalcelateRange()
       },
       style: { overflowY: 'auto' as const },
     },
