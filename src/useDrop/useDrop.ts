@@ -64,7 +64,7 @@ export function useDrop(
       dataTransfer.files.length > 0 &&
       options?.onFiles
     ) {
-      options.onFiles([...dataTransfer.files], evt as DragEvent)
+      options.onFiles([...Array.from(dataTransfer.files)], evt as DragEvent)
       return
     }
     if (
