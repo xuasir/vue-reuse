@@ -10,12 +10,12 @@ features:
   - title: TypeScript支持
     details: 全部采用TypeScript实现，有良好的类型推导支持
 footer: MIT License Copyright (c) 2020 happycoder
-description: vue hooks based composition API
+description: 基于composition API的可组合逻辑复用函数集
 meta:
   - name: og:title
     content: vue-hooks
   - name: og:description
-    content: vue hooks based composition API
+    content: 基于composition API的可组合逻辑复用函数集
 ---
 
 ### 安装和使用
