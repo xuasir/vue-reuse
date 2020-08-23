@@ -62,14 +62,20 @@ export function useVirtualList<T>(
   )
 
   // totalheight
+  const heightCache: Record<string, number> = {}
   function getHeight(index: number): number {
+    if (heightCache[index]) return heightCache[index]
+    let offset = 0
     if (typeof itemHeight === 'number') {
-      return index * itemHeight
+      offset = index * itemHeight
     } else {
-      return list()
+      offset = list()
         .slice(0, index)
         .reduce((sum, _, index) => sum + itemHeight(index), 0)
     }
+    // cache
+    heightCache[index] = offset
+    return offset
   }
 
   // scroll to
