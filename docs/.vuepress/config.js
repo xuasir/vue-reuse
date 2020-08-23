@@ -33,6 +33,7 @@ module.exports = {
           collapsable: false,
           children: [
             ['UI/useDrop', 'useDrop'],
+            ['UI/useVirtualList', 'useVirtualList'],
           ],
         },
         {
