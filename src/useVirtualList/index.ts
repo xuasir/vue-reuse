@@ -9,7 +9,8 @@ import {
   watchEffect,
   isRef,
 } from 'vue-demi'
-import { useThrottleFn } from 'src/useThrottleFn'
+import { useThrottleFn } from '../useThrottleFn'
+
 type ReturnValue<T> = {
   list: ComputedRef<{ data: T; index: number }[]>
   wrapperProps: {
