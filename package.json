@@ -1,7 +1,7 @@
 {
   "name": "@xuguo/vue-hooks",
   "description": "composition-api hooks",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "main": "dist/vue.hooks.cjs.js",
   "module": "dist/vue.hooks.esm.js",
   "types": "dist/vue.hooks.d.ts",
