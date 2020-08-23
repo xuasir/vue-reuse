@@ -3,13 +3,11 @@ import {
   ref,
   computed,
   ComputedRef,
-  watch,
   getCurrentInstance,
-  onUnmounted,
   reactive,
-  isReactive,
-  WatchStopHandle,
   onMounted,
+  watchEffect,
+  isRef,
 } from 'vue-demi'
 import { useThrottleFn } from 'src/useThrottleFn'
 type ReturnValue<T> = {
@@ -35,21 +33,32 @@ type Options = {
   overscan?: number
 }
 
-export function useVirtualList<T>(list: T[], options: Options): ReturnValue<T> {
+export function useVirtualList<T>(
+  rawList: T[] | Ref<T[]>,
+  options: Options
+): ReturnValue<T> {
   const { itemHeight, overscan = 5 } = options
   const el = ref<null | HTMLElement>(null)
   const paddingTopRef = ref<number>(0)
   const totalHeightRef = ref<number>(0)
   // list
-  // calculate change listState ---> computed run change listRef
+  function list(): T[] {
+    if (isRef(rawList)) {
+      return rawList.value
+    } else {
+      return rawList
+    }
+  }
   const listState = reactive({ start: 0, end: 10 })
   const listRef = computed<{ data: T; index: number }[]>(() =>
-    list.slice(listState.start, listState.end).map((data, index) => {
-      return {
-        data,
-        index: index + listState.start,
-      }
-    })
+    list()
+      .slice(listState.start, listState.end)
+      .map((data, index) => {
+        return {
+          data,
+          index: index + listState.start,
+        }
+      })
   )
 
   // totalheight
@@ -57,25 +66,10 @@ export function useVirtualList<T>(list: T[], options: Options): ReturnValue<T> {
     if (typeof itemHeight === 'number') {
       return index * itemHeight
     } else {
-      return list
+      return list()
         .slice(0, index)
         .reduce((sum, _, index) => sum + itemHeight(index), 0)
     }
-  }
-  // init totalheight
-  totalHeightRef.value = getHeight(list.length)
-  // 监听list 重置totalheight
-  let stopWatchListLen: null | WatchStopHandle = null
-  if (isReactive(list)) {
-    stopWatchListLen = watch(
-      () => list.length,
-      (newLen, oldLen) => {
-        if (newLen !== oldLen) {
-          totalHeightRef.value = getHeight(list.length)
-        }
-      },
-      { flush: 'sync' }
-    )
   }
 
   // scroll to
@@ -83,7 +77,7 @@ export function useVirtualList<T>(list: T[], options: Options): ReturnValue<T> {
     if (el.value) {
       // 边界情况
       index < 0 && (index = 0)
-      index > list.length && (index = list.length)
+      index > list.length && (index = list().length)
       el.value.scrollTop = getHeight(index)
       // 计算list
       calculateRange()
@@ -101,7 +95,7 @@ export function useVirtualList<T>(list: T[], options: Options): ReturnValue<T> {
       // 设置
       const from = offset - overscan
       const to = offset + viewCapacity + overscan
-      const currentLen = list.length
+      const currentLen = list().length
       // 到达列表最末端时候不需要再修改
       if (to >= currentLen && listState.end === currentLen) return
       listState.start = from < 0 ? 0 : from
@@ -118,7 +112,7 @@ export function useVirtualList<T>(list: T[], options: Options): ReturnValue<T> {
     } else {
       let sum = 0
       let offset = 0
-      const len = list.length
+      const len = list().length
       for (let i = 0; i < len; i++) {
         sum += itemHeight(i)
         if (sum >= top) {
@@ -136,7 +130,8 @@ export function useVirtualList<T>(list: T[], options: Options): ReturnValue<T> {
     } else {
       let sum = 0
       let capacity = 0
-      for (let i = listState.start + overscan; i < list.length; i++) {
+      const len = list().length
+      for (let i = listState.start + overscan; i < len; i++) {
         sum += itemHeight(i)
         if (sum > height) {
           capacity = i
@@ -149,12 +144,15 @@ export function useVirtualList<T>(list: T[], options: Options): ReturnValue<T> {
 
   if (getCurrentInstance()) {
     onMounted(() => {
-      // init计算
+      // init totalheight
+      watchEffect(() => {
+        const total = getHeight(list().length)
+        if (total !== totalHeightRef.value) {
+          totalHeightRef.value = total
+        }
+      })
+      // init range
       calculateRange()
-    })
-
-    onUnmounted(() => {
-      stopWatchListLen && stopWatchListLen()
     })
   }
 
