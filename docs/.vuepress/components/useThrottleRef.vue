@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="text" @input="(e) => (rawRef = e.target.value)" />
+    <input type="text" @input="(e) => (throttleRef = e.target.value)" />
     <div class="block">throttle Ref: {{ throttleRef }}</div>
   </div>
 </template>
@@ -10,11 +10,9 @@ import { useThrottleRef } from '@xuguo/vue-hooks'
 export default {
   name: 'use-throttle-ref',
   setup() {
-    const rawRef = ref('')
-    const throttleRef = useThrottleRef(rawRef, 300)
+    const throttleRef = useThrottleRef('', 300)
     return {
       throttleRef,
-      rawRef,
     }
   },
 }
