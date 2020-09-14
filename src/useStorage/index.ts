@@ -66,7 +66,7 @@ export function useStorage<
   const _dv = readValue()
   _dv && (storageValue.value = _dv)
 
-  const stop = watch(
+  watch(
     storageValue,
     (newValue) => {
       writeValue(newValue)
@@ -76,10 +76,6 @@ export function useStorage<
       deep: true,
     }
   )
-
-  if (getCurrentInstance()) {
-    onUnmounted(() => stop())
-  }
 
   return storageValue
 }

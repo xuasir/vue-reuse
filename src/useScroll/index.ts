@@ -6,6 +6,7 @@ import {
   onMounted,
   onUnmounted,
   getCurrentInstance,
+  computed
 } from 'vue-demi'
 import { useThrottleFn } from '../useThrottleFn'
 import { isBrowser } from '../shared/utils'
@@ -59,6 +60,7 @@ export function useScroll(dom: Dom = isBrowser ? document : undefined): any {
     })
   }
 
-  return [position, el]
+  return [computed(() => position), el]
+  // use shallowReadonly vuepress will build error
   // return [shallowReadonly(position), el]
 }
