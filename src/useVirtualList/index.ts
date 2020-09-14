@@ -84,7 +84,7 @@ export function useVirtualList<T>(
     if (el.value) {
       // 边界情况
       index < 0 && (index = 0)
-      index > list.length && (index = list().length)
+      index > list().length && (index = list().length)
       el.value.scrollTop = getHeight(index)
       // 计算list
       calculateRange()
