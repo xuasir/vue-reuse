@@ -1,26 +1,28 @@
 import {
-  ref,
   Ref,
-  watch,
-  UnwrapRef,
-  getCurrentInstance,
-  onUnmounted,
+  customRef
 } from 'vue-demi'
-import { useDebounceFn } from '../useDebounceFn'
 
-export function useDebounceRef<T extends Ref>(rawValue: T, wait: number): T {
-  const debounceValue = ref<UnwrapRef<T>>(rawValue.value)
-  const { run, cancel } = useDebounceFn<UnwrapRef<T>[]>((newValue) => {
-    debounceValue.value = newValue
-  }, wait)
-  const stop = watch(rawValue, (newValue) => run(newValue))
-
-  if (getCurrentInstance()) {
-    onUnmounted(() => {
-      stop()
-      cancel()
-    })
+export function useDebounceRef<T>(rawValue: T, wait = 0): Ref<T> {
+  let timer: any = null
+  function clear() {
+    if(timer) {
+      clearTimeout(timer)
+    }
   }
-
-  return debounceValue
+  return customRef((track, trigger) => {
+    return {
+      get() {
+        track()
+        return rawValue
+      },
+      set(val) {
+        clear()
+        timer = setTimeout(() => {
+          rawValue = val
+          trigger()
+        }, wait)
+      }
+    }
+  })
 }
