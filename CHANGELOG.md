@@ -1,3 +1,18 @@
+# [0.5.0](https://github.com/xuguo-code/vue-hooks/compare/v0.4.0...v0.5.0) (2020-09-14)
+
+
+### Bug Fixes
+
+* **virtuallist:** 修复虚拟列表scrollto计算padding错误 ([9ebc8c9](https://github.com/xuguo-code/vue-hooks/commit/9ebc8c9b014805258d59cd2775d1c4118de5737c))
+* usedrop类型错误 ([8a6d48f](https://github.com/xuguo-code/vue-hooks/commit/8a6d48f5224caf41aa521f0e3b6988588a706204))
+
+
+### Performance Improvements
+
+* **watch-stop:** 使用组件自动清除watch副作用替代手动清除 ([63975c7](https://github.com/xuguo-code/vue-hooks/commit/63975c75886db4794f3e258333ec204408c0d0ee))
+
+
+
 # [0.4.0](https://github.com/xuguo-code/vue-hooks/compare/v0.3.2...v0.4.0) (2020-08-23)
 
 
