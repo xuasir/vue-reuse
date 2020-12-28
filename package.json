@@ -65,7 +65,7 @@
     "vue-demi": "^0.2.0"
   },
   "dependencies": {
-    "@vue/composition-api": "^1.0.0-beta.10",
+    "@vue/composition-api": "^1.0.0-beta.22",
     "@xuguo/sku": "^1.1.5",
     "lodash": "^4.17.20"
   },
@@ -105,6 +105,6 @@
     "ts-jest": "^26.2.0",
     "typescript": "^3.9.7",
     "vue-demi": "^0.2.0",
-    "vuepress": "^1.5.3"
+    "vuepress": "^1.7.1"
   }
 }
