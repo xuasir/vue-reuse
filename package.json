@@ -9,7 +9,7 @@
     "dist"
   ],
   "scripts": {
-    "init": "rm -rf node_modules && npm install",
+    "init": "rm -rf node_modules && yarn",
     "lint": "eslint --ext .ts src/**/*",
     "format": "prettier --write --parser typescript \"src/**/*.ts?(x)\"",
     "cm": "git-cz",
