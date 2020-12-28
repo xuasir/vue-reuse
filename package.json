@@ -1,7 +1,7 @@
 {
   "name": "@vcake/vue-hooks",
   "description": "composition-api hooks",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "main": "dist/vue.hooks.cjs.js",
   "module": "dist/vue.hooks.esm.js",
   "types": "dist/vue.hooks.d.ts",

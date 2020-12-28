@@ -1,3 +1,7 @@
+## [0.5.1](https://github.com/xuguo-code/vue-hooks/compare/v0.5.0...v0.5.1) (2020-12-28)
+
+
+
 # [0.5.0](https://github.com/xuguo-code/vue-hooks/compare/v0.4.0...v0.5.0) (2020-09-14)
 
 
