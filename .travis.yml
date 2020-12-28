@@ -6,10 +6,9 @@ cache:
   yarn: true
 
 install:
-  - yarn install
+  - yarn
 
 script:
-  - yarn build esm -t -s
   - yarn docs:build
 
 branches:
@@ -23,7 +22,7 @@ deploy:
   github_token: $GITHUB_TOKEN
   keep_history: false
   name: xuguo
-  email: xg501@outlook.com
+  email: xuguo@outlook.it
   on:
     tags: true
     branch: master
