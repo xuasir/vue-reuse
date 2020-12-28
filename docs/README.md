@@ -20,14 +20,14 @@ meta:
 
 ### 安装和使用
 
-- `@xuguo/vue-hooks`实现基于`Vue3 composition API`的 hooks 函数集
+- `@vcake/vue-hooks`实现基于`Vue3 composition API`的 hooks 函数集
 
 ```JavaScript
 // 安装依赖
-npm install @xuguo/vue-hooks @xuguo/sku vue-demi
+npm install @vcake/vue-hooks @xuguo/sku vue-demi
 // 如果您使用的是vue2.x 您还需要安装并使用 composition API
 npm install @vue/composition-api
 
 // 使用
-import { useScroll } from '@xuguo/vue-hooks'
+import { useScroll } from '@vcake/vue-hooks'
 ```

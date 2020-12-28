@@ -6,7 +6,7 @@
 </template>
 <script>
 import { ref } from '@vue/composition-api'
-import { useLocalStorage } from '@xuguo/vue-hooks'
+import { useLocalStorage } from '@vcake/vue-hooks'
 export default {
   name: 'use-local-storage',
   setup() {
@@ -16,8 +16,8 @@ export default {
     }
     return {
       num,
-      add,
+      add
     }
-  },
+  }
 }
 </script>

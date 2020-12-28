@@ -6,7 +6,13 @@
     </div>
     <ul class="list">
       <h4>历史记录</h4>
-      <li v-for="(val, i) in allData" :key="i" :class="{'current': val == current}">{{ val }}</li>
+      <li
+        v-for="(val, i) in allData"
+        :key="i"
+        :class="{ current: val == current }"
+      >
+        {{ val }}
+      </li>
     </ul>
     <div class="operate">
       <button @click="forward">前进</button>
@@ -23,23 +29,24 @@
   </div>
 </template>
 <script>
-import { useHistoryTravel } from '@xuguo/vue-hooks'
+import { useHistoryTravel } from '@vcake/vue-hooks'
 import { reactive, ref } from '@vue/composition-api'
 
 export default {
   name: 'use-history-travel',
   setup() {
     const allData = reactive([])
-    const { 
-      current, 
-      backLength, 
-      forwardLength, 
-      back, 
-      forward, 
-      go } = useHistoryTravel('initial value')
+    const {
+      current,
+      backLength,
+      forwardLength,
+      back,
+      forward,
+      go
+    } = useHistoryTravel('initial value')
 
     allData.push(current.value)
-    
+
     const inputRef = ref('')
     const goRef = ref(0)
     function add() {
@@ -58,7 +65,7 @@ export default {
       allData,
       inputRef,
       add,
-      goRef,
+      goRef
     }
   }
 }

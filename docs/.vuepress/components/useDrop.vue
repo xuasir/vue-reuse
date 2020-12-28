@@ -8,21 +8,24 @@
         @dragleave="dropProps.onDragLeave"
         @drop="dropProps.onDrop"
         @paste="dropProps.onPaste"
-      >---- {{ isHovering ? 'hovering' : 'Drop to here ' }} ----</div>
+      >
+        ---- {{ isHovering ? 'hovering' : 'Drop to here ' }} ----
+      </div>
       <span
         class="drag-item"
         v-for="item in [1, 2, 3, 4, 5]"
         :key="dragProps.key(item)"
         :draggable="dragProps.draggable"
         @dragstart="(e) => dragProps.onDragStart(item)(e)"
-      >item {{ item }}</span>
+        >item {{ item }}</span
+      >
     </div>
     <div class="right">{{ msg }}</div>
   </div>
 </template>
 <script>
 import { ref } from '@vue/composition-api'
-import { useDrag, useDrop } from '@xuguo/vue-hooks'
+import { useDrag, useDrop } from '@vcake/vue-hooks'
 export default {
   name: 'use-drop',
   setup() {
@@ -45,15 +48,15 @@ export default {
       onUri(uri) {
         msg.value = uri
         window.open(uri)
-      },
+      }
     })
     return {
       dragProps,
       dropProps,
       isHovering,
-      msg,
+      msg
     }
-  },
+  }
 }
 </script>
 <style scoped>

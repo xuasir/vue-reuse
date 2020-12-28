@@ -17,7 +17,7 @@
 </template>
 <script>
 import { MockDataCustomKey, spuOpt, generateSku } from '../mock'
-import { useSku } from '@xuguo/vue-hooks'
+import { useSku } from '@vcake/vue-hooks'
 export default {
   name: 'use-sku-custom',
   setup() {
@@ -25,9 +25,9 @@ export default {
     return {
       skuList,
       specTap,
-      allSku: generateSku(),
+      allSku: generateSku()
     }
-  },
+  }
 }
 </script>
 <style scoped>

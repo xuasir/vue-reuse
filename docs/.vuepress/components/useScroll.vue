@@ -5,14 +5,14 @@
   </div>
 </template>
 <script>
-import { useScroll } from '@xuguo/vue-hooks'
+import { useScroll } from '@vcake/vue-hooks'
 export default {
   name: 'use-scroll',
   setup() {
     const [pos] = useScroll()
     return {
-      pos,
+      pos
     }
-  },
+  }
 }
 </script>

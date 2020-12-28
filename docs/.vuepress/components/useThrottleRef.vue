@@ -6,14 +6,14 @@
 </template>
 <script>
 import { ref } from '@vue/composition-api'
-import { useThrottleRef } from '@xuguo/vue-hooks'
+import { useThrottleRef } from '@vcake/vue-hooks'
 export default {
   name: 'use-throttle-ref',
   setup() {
     const throttleRef = useThrottleRef('', 300)
     return {
-      throttleRef,
+      throttleRef
     }
-  },
+  }
 }
 </script>

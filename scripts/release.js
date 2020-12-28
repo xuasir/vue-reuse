@@ -163,7 +163,7 @@ async function pubilshPackage(nextVersion) {
       }
     )
     console.log(
-      chalk.green(`Successfully published @xuguo/vue-hooks v${nextVersion}`)
+      chalk.green(`Successfully published @vcake/vue-hooks v${nextVersion}`)
     )
   } catch (e) {
     console.log()

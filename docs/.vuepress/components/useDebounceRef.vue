@@ -5,14 +5,14 @@
   </div>
 </template>
 <script>
-import { useDebounceRef } from '@xuguo/vue-hooks'
+import { useDebounceRef } from '@vcake/vue-hooks'
 export default {
   name: 'use-debounce-ref',
   setup() {
     const debounceRef = useDebounceRef('', 500)
     return {
-      debounceRef,
+      debounceRef
     }
-  },
+  }
 }
 </script>

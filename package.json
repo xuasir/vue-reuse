@@ -1,5 +1,5 @@
 {
-  "name": "@xuguo/vue-hooks",
+  "name": "@vcake/vue-hooks",
   "description": "composition-api hooks",
   "version": "0.5.0",
   "main": "dist/vue.hooks.cjs.js",

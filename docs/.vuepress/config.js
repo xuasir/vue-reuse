@@ -8,7 +8,7 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        '@xuguo/vue-hooks': path.resolve(__dirname, '../../src/index.ts')
+        '@vcake/vue-hooks': path.resolve(__dirname, '../../src/index.ts')
       },
       extensions: ['.ts', '.js', '.styl']
     },

@@ -6,7 +6,7 @@
 </template>
 <script>
 import { ref } from '@vue/composition-api'
-import { useDebounceFn } from '@xuguo/vue-hooks'
+import { useDebounceFn } from '@vcake/vue-hooks'
 export default {
   name: 'use-debounce-fn',
   setup() {
@@ -16,8 +16,8 @@ export default {
     }, 500)
     return {
       run,
-      num,
+      num
     }
-  },
+  }
 }
 </script>

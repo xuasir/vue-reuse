@@ -10,13 +10,14 @@
         :class="['spec', spec.status]"
         v-for="spec in specLine.specs"
         @click="specTap(spec)"
-      >{{ spec.specValue }}</span>
+        >{{ spec.specValue }}</span
+      >
     </div>
   </div>
 </template>
 <script>
 import { MockData, generateSku } from '../mock'
-import { useSku } from '@xuguo/vue-hooks'
+import { useSku } from '@vcake/vue-hooks'
 export default {
   name: 'use-sku',
   setup() {

@@ -7,7 +7,7 @@
 
 <script>
 import { ref } from '@vue/composition-api'
-import { useEventListener } from '@xuguo/vue-hooks'
+import { useEventListener } from '@vcake/vue-hooks'
 export default {
   name: 'use-eventlisener',
   setup() {
@@ -15,8 +15,8 @@ export default {
     const el = useEventListener('click', () => (num.value += 1))
     return {
       num,
-      el,
+      el
     }
-  },
+  }
 }
 </script>

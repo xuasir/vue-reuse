@@ -23,13 +23,13 @@
   </div>
 </template>
 <script>
-import { useVirtualList } from '@xuguo/vue-hooks'
+import { useVirtualList } from '@vcake/vue-hooks'
 import {
   isReactive,
   reactive,
   watchEffect,
   shallowRef,
-  ref,
+  ref
 } from '@vue/composition-api'
 
 export default {
@@ -41,9 +41,9 @@ export default {
       wrapperProps,
       containeProps,
       containeRef,
-      scrollTo,
+      scrollTo
     } = useVirtualList(rawList, {
-      itemHeight: 50,
+      itemHeight: 50
     })
 
     function addTen() {
@@ -56,9 +56,9 @@ export default {
       containeProps,
       containeRef,
       scrollTo,
-      addTen,
+      addTen
     }
-  },
+  }
 }
 </script>
 <style scoped>

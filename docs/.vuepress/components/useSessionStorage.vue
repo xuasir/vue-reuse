@@ -6,7 +6,7 @@
 </template>
 <script>
 import { ref } from '@vue/composition-api'
-import { useSessionStorage } from '@xuguo/vue-hooks'
+import { useSessionStorage } from '@vcake/vue-hooks'
 export default {
   name: 'use-session-storage',
   setup() {
@@ -16,8 +16,8 @@ export default {
     }
     return {
       num,
-      add,
+      add
     }
-  },
+  }
 }
 </script>
