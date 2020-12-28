@@ -48,3 +48,5 @@
 > test：新增测试用例或是更新现有测试  
 > revert：回滚某个更早之前的提交  
 > chore：不属于以上类型的其他类型
+
+## [`gitflows`](https://github.com/xuguo-code/vue-hooks/blob/master/.github/gitflows.md)
