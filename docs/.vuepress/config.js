@@ -8,8 +8,18 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        '@xuguo/vue-hooks': path.resolve(__dirname, '../../dist/vue.hooks.esm.js')
-      }
+        '@xuguo/vue-hooks': path.resolve(__dirname, '../../src/index.ts')
+      },
+      extensions: ['.ts', '.js', '.styl']
+    },
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          use: 'babel-loader',
+          exclude: /node_modules/,
+        },
+      ],
     }
   },
   // head: [],
