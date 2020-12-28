@@ -49,4 +49,6 @@
 > revert：回滚某个更早之前的提交  
 > chore：不属于以上类型的其他类型
 
-## [`gitflows`](https://github.com/xuguo-code/vue-hooks/blob/master/.github/gitflows.md)
+### [`gitflows`](https://github.com/xuguo-code/vue-hooks/blob/master/.github/gitflows.md)
+
+### [`API规范`](https://github.com/xuguo-code/vue-hooks/blob/master/.github/API.md)
