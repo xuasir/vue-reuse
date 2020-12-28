@@ -1,4 +1,4 @@
-name: Node CI
+name: Lint Test CI
 
 on: [push, pull_request]
 
@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm intall, build, and test
+      - name: yarn intall, lint, and test
         run: |
           npm install yarn -g
           yarn
