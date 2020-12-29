@@ -1,8 +1,8 @@
 name: Deploy Doc CI
 
 on:
-  label:
-    types: [created]
+  push:
+    tags: 'v**'
 
 jobs:
   build:

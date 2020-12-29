@@ -1,6 +1,14 @@
 name: Lint Test CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+      - feat
+  pull_request:
+    branches:
+      - master
+      - feat
 
 jobs:
   build:

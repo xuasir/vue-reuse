@@ -1,6 +1,11 @@
 name: Build CI
 
-on: [push, pull_request]
+on:
+  workflow_run:
+    workflows: ['Lint Test CI']
+    branches: [master, feat]
+    types:
+      - completed
 
 jobs:
   build:
