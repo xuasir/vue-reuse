@@ -4,6 +4,7 @@
 ![Lint Test CI](https://github.com/xuguo-code/vue-hooks/workflows/Lint%20Test%20CI/badge.svg)
 ![Build CI](https://github.com/xuguo-code/vue-hooks/workflows/Build%20CI/badge.svg)
 ![Deploy Doc CI](https://github.com/xuguo-code/vue-hooks/workflows/Deploy%20Doc%20CI/badge.svg)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fxuguo-code%2Fvue-hooks.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fxuguo-code%2Fvue-hooks?ref=badge_shield)
 
 ## 特性
 
@@ -54,3 +55,7 @@
 ### [`gitflows`](https://github.com/xuguo-code/vue-hooks/blob/master/.github/gitflows.md)
 
 ### [`API规范`](https://github.com/xuguo-code/vue-hooks/blob/master/.github/API.md)
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fxuguo-code%2Fvue-hooks.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fxuguo-code%2Fvue-hooks?ref=badge_large)
