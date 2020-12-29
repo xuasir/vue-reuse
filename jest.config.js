@@ -9,7 +9,7 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: ['<rootDir>/src/**/**.ts'],
   coverageDirectory: path.resolve(__dirname, 'coverage'),
-  coverageReporters: ['html', 'text'],
+  // coverageReporters: ['html', 'text'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
   watchPathIgnorePatterns: ['node_modules'],
   testMatch: ['<rootDir>/__test__/**/*spec.[jt]s?(x)'],

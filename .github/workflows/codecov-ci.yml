@@ -1,0 +1,25 @@
+name: Build CI
+
+on:
+  workflow_run:
+    workflows: ['Lint Test CI']
+    branches: [master, feat]
+    types:
+      - completed
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [15.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install yarn -g
+      - run: yarn
+      - run: yarn test --coverage
+      - run: bash <(curl -s https://codecov.io/bash)
+        env:
+          CI: true
