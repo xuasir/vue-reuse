@@ -1,4 +1,4 @@
-name: Build CI
+name: Codecov CI
 
 on:
   workflow_run:
