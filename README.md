@@ -1,7 +1,9 @@
 # vue-hooks
 
 基于 composition-api 的 hooks 函数库  
-[![Build Status](https://travis-ci.org/xuguo-code/vue-hooks.svg?branch=master)](https://travis-ci.org/xuguo-code/vue-hooks)
+![Lint Test CI](https://github.com/xuguo-code/vue-hooks/workflows/Lint%20Test%20CI/badge.svg)
+![Build CI](https://github.com/xuguo-code/vue-hooks/workflows/Build%20CI/badge.svg)
+![Deploy Doc CI](https://github.com/xuguo-code/vue-hooks/workflows/Deploy%20Doc%20CI/badge.svg)
 
 ## 特性
 
