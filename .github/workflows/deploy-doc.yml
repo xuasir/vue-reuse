@@ -1,0 +1,34 @@
+name: Deploy Doc CI
+
+on:
+  label:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [15.x]
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: yarn intall, doc build
+        run: |
+          npm install yarn -g
+          yarn
+          yarn docs:build
+      - name: deploy docs
+        uses: JamesIves/github-pages-deploy-action@3.6.2
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: doc-dist
+          CLEAN: true
+        env:
+          CI: true
