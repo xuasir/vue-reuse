@@ -7,7 +7,7 @@ module.exports = {
     __VUE2__: false,
   },
   collectCoverage: true,
-  collectCoverageFrom: ['**/__test__/**'],
+  collectCoverageFrom: ['<rootDir>/src/**/**.ts'],
   coverageDirectory: path.resolve(__dirname, 'coverage'),
   coverageReporters: ['html', 'text'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
