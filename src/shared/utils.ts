@@ -8,6 +8,6 @@ export function createStorage(): Storage {
     removeItem: (x) => delete state[x],
     clear: () => (state = {}),
     length: Object.keys(state).length,
-    key: (index) => Object.keys(state)[index],
+    key: (index) => Object.keys(state)[index]
   }
 }
