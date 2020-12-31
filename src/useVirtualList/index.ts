@@ -7,7 +7,7 @@ import {
   reactive,
   onMounted,
   watchEffect,
-  isRef,
+  isRef
 } from 'vue-demi'
 import { useThrottleFn } from '../useThrottleFn'
 
@@ -29,7 +29,7 @@ type ReturnValue<T> = {
   scrollTo(index: number): void
 }
 
-type Options = {
+export type Options = {
   itemHeight: number | ((index: number) => number)
   overscan?: number
 }
@@ -57,7 +57,7 @@ export function useVirtualList<T>(
       .map((data, index) => {
         return {
           data,
-          index: index + listState.start,
+          index: index + listState.start
         }
       })
   )
@@ -98,7 +98,7 @@ export function useVirtualList<T>(
       // 计算偏移量
       const offset = getOffset(element.scrollTop)
       // 计算一屏显示个数
-      const viewCapacity = getViewCapacity(element.clientHeight)
+      const viewCapacity = getViewCapacity(element.clientHeight, offset - 1)
       // 设置
       const from = offset - overscan
       const to = offset + viewCapacity + overscan
@@ -131,21 +131,21 @@ export function useVirtualList<T>(
     }
   }
 
-  function getViewCapacity(height: number): number {
+  function getViewCapacity(height: number, offset: number): number {
     if (typeof itemHeight === 'number') {
       return Math.ceil(height / itemHeight)
     } else {
       let sum = 0
       let capacity = 0
       const len = list().length
-      for (let i = listState.start + overscan; i < len; i++) {
+      for (let i = offset; i < len; i++) {
         sum += itemHeight(i)
         if (sum > height) {
           capacity = i
           break
         }
       }
-      return capacity - listState.start
+      return capacity - offset
     }
   }
 
@@ -170,8 +170,8 @@ export function useVirtualList<T>(
         width: '100%' as const,
         boxSizing: 'border-box' as const,
         height: computed(() => `${totalHeightRef.value}px`),
-        paddingTop: computed(() => `${paddingTopRef.value}px`),
-      },
+        paddingTop: computed(() => `${paddingTopRef.value}px`)
+      }
     }),
     containeRef: el,
     containeProps: {
@@ -179,8 +179,8 @@ export function useVirtualList<T>(
         e.preventDefault()
         runCalcelateRange()
       },
-      style: { overflowY: 'auto' as const },
+      style: { overflowY: 'auto' as const }
     },
-    scrollTo,
+    scrollTo
   }
 }
