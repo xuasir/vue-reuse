@@ -22,4 +22,6 @@ export function nextTask(fn: noop): void {
   setTimeout(fn)
 }
 
+export const nextTick: () => Promise<void> = () => Promise.resolve().then()
+
 export * from './types'
