@@ -1,9 +1,7 @@
-import {
-  Ref,
-  customRef
-} from 'vue-demi'
+import { Ref, customRef } from 'vue-demi'
 
-export function useThrottleRef<T>(rawValue: T, wait = 0): Ref<T> {
+export function useThrottleRef<T>(value: T, wait = 0): Ref<T> {
+  let rawValue = value
   let timer: any = null
   return customRef((track, trigegr) => {
     return {
@@ -12,7 +10,7 @@ export function useThrottleRef<T>(rawValue: T, wait = 0): Ref<T> {
         return rawValue
       },
       set(val) {
-        if(!timer) {
+        if (!timer) {
           rawValue = val
           trigegr()
           timer = setTimeout(() => {

@@ -5,16 +5,15 @@ type ReturnValue<T> = {
 
 export function useThrottleFn<T>(
   fn: (...args: T[]) => any,
-  wait?: number
+  wait = 0
 ): ReturnValue<T> {
-  const _wait = typeof wait === 'number' ? wait : 0
   let time: any = null
   function run(...args: T[]) {
     if (!time) {
       time = setTimeout(() => {
         fn(...args)
         time = null
-      }, _wait)
+      }, wait)
     }
   }
 
@@ -26,6 +25,6 @@ export function useThrottleFn<T>(
 
   return {
     run,
-    cancel,
+    cancel
   }
 }
