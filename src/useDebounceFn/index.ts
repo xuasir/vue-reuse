@@ -5,16 +5,15 @@ type ReturnValue<T extends any[]> = {
 
 export function useDebounceFn<T extends any[]>(
   fn: (...args: T) => any,
-  wait: number
+  wait = 0
 ): ReturnValue<T> {
-  const _wait = typeof wait === 'number' ? wait : 0
   let timer: any = null
 
   function run(...args: T) {
     cancel()
     timer = setTimeout(() => {
       fn(...args)
-    }, _wait)
+    }, wait)
   }
 
   function cancel() {
@@ -25,6 +24,6 @@ export function useDebounceFn<T extends any[]>(
 
   return {
     run,
-    cancel,
+    cancel
   }
 }
