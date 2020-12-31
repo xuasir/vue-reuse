@@ -1,5 +1,6 @@
 import { Ref } from 'vue-demi'
 import { useStorage } from '../useStorage'
+import { isBrowser, createStorage } from '../shared/utils'
 
 export function useSessionStorage(
   key: string,
@@ -29,7 +30,9 @@ export function useSessionStorage<T extends unknown[]>(
 export function useSessionStorage<
   T extends string | number | boolean | Record<string, unknown> | [] | null
 >(key: string, initialValue: T): Ref<any> {
-  if (typeof window == undefined)
-    throw new Error(`useSessionStorage should be used in browser`)
-  return useStorage(sessionStorage, key, initialValue as any)
+  return useStorage(
+    isBrowser ? sessionStorage : createStorage(),
+    key,
+    initialValue as any
+  )
 }
