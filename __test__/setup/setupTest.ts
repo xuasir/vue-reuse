@@ -5,9 +5,18 @@ const localStorageMock = {
   getItem: jest.fn((x) => state[x]),
   setItem: jest.fn((x, v) => (state[x] = v)),
   removeItem: jest.fn((x) => delete state[x]),
-  clear: jest.fn(() => (state = {})),
+  clear: jest.fn(() => (state = {}))
+}
+const sessionStorageMock = {
+  getItem: jest.fn((x) => state[x]),
+  setItem: jest.fn((x, v) => (state[x] = v)),
+  removeItem: jest.fn((x) => delete state[x]),
+  clear: jest.fn(() => (state = {}))
 }
 
 Object.defineProperty(window, 'localStorage', {
-  value: localStorageMock,
+  value: localStorageMock
+})
+Object.defineProperty(window, 'sessionStorage', {
+  value: sessionStorageMock
 })
