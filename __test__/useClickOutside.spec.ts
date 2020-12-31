@@ -1,3 +1,4 @@
+import { mount } from '@vue/test-utils'
 import { renderComposable } from './utils'
 import { useClickOutside } from '../src/useClickOutside'
 
@@ -46,6 +47,35 @@ describe('test use click outside ', () => {
     await vm.$nextTick()
     expect(vm.$data.elRef).toBeDefined()
     await button.click()
+    expect(fn).not.toBeCalled()
+    await div.click()
+    expect(fn).toBeCalled()
+    await div.click()
+    expect(fn).toBeCalledTimes(2)
+
+    wrapper.destroy()
+  })
+
+  test('test listener by ref ', async () => {
+    const fn = jest.fn()
+    const root = document.createElement('div')
+    div.appendChild(root)
+    const wrapper = mount(
+      {
+        setup() {
+          const elRef = useClickOutside(fn)
+          return { elRef }
+        },
+        template: `
+        <button ref="elRef"></button>
+      `
+      },
+      { attachTo: root }
+    )
+    const { vm } = wrapper
+    await vm.$nextTick()
+    expect(vm.$data.elRef).toBeDefined()
+    await wrapper.find('button').trigger('click')
     expect(fn).not.toBeCalled()
     await div.click()
     expect(fn).toBeCalled()
