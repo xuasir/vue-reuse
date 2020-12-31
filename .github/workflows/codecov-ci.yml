@@ -1,14 +1,17 @@
 name: Codecov CI
 
 on:
-  workflow_run:
-    workflows: ['Lint Test CI']
-    branches: [master, feat]
-    types:
-      - completed
+  push:
+    branches:
+      - master
+      - feat
+  pull_request:
+    branches:
+      - master
+      - feat
 
 jobs:
-  build:
+  codecov:
     runs-on: ubuntu-latest
 
     strategy:

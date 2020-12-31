@@ -11,7 +11,7 @@ on:
       - feat
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
 
     strategy:
