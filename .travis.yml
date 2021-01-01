@@ -10,19 +10,9 @@ install:
 
 script:
   - yarn docs:build
+  - yarn build
 
 branches:
   only:
     - master
-
-deploy:
-  provider: pages
-  skip_cleanup: true
-  local_dir: doc-dist/
-  github_token: $GITHUB_TOKEN
-  keep_history: false
-  name: xuguo
-  email: xuguo@outlook.it
-  on:
-    tags: true
-    branch: master
+    - feat
