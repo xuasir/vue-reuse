@@ -1,3 +1,12 @@
+## [0.5.2](https://github.com/xuguo-code/vue-hooks/compare/v0.5.1...v0.5.2) (2021-01-01)
+
+
+### Bug Fixes
+
+* 虚拟列表计算错误修复 ([7a387f8](https://github.com/xuguo-code/vue-hooks/commit/7a387f8693c5fc13d2ff71e7b68fafbb2403fd79))
+
+
+
 ## [0.5.1](https://github.com/xuguo-code/vue-hooks/compare/v0.5.0...v0.5.1) (2020-12-28)
 
 
