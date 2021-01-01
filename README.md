@@ -3,7 +3,7 @@
 ##### 基于 composition-api 的 hooks 函数库
 
 ![Lint Test](https://github.com/xuguo-code/vue-hooks/workflows/Lint%20Test%20CI/badge.svg)
-![Build](https://github.com/xuguo-code/vue-hooks/workflows/Build%20CI/badge.svg)
+[![Build Status](https://travis-ci.org/xuguo-code/vue-hooks.svg?branch=master)](https://travis-ci.org/xuguo-code/vue-hooks)
 ![Deploy Docs](https://github.com/xuguo-code/vue-hooks/workflows/Deploy%20Doc%20CI/badge.svg)
 [![license scan](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fxuguo-code%2Fvue-hooks.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fxuguo-code%2Fvue-hooks?ref=badge_shield)
 [![codecov](https://codecov.io/gh/xuguo-code/vue-hooks/branch/master/graph/badge.svg?token=PM1K5156D2)](https://codecov.io/gh/xuguo-code/vue-hooks)

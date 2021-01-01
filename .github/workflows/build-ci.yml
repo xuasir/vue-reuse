@@ -1,15 +1,5 @@
 name: Build CI
 
-on:
-  push:
-    branches:
-      - master
-      - feat
-  pull_request:
-    branches:
-      - master
-      - feat
-
 jobs:
   build:
     runs-on: ubuntu-latest
