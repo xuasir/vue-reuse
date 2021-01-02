@@ -1,5 +1,5 @@
 ---
-title: vue-hooks
+title: vue-reuse
 home: true
 heroImage: /imgs/logo.png
 actionText: 开始 →
@@ -13,21 +13,21 @@ footer: MIT License Copyright (c) 2020 happycoder
 description: 基于composition API的可组合逻辑复用函数集
 meta:
   - name: og:title
-    content: vue-hooks
+    content: vue-reuse
   - name: og:description
     content: 基于composition API的可组合逻辑复用函数集
 ---
 
 ### 安装和使用
 
-- `@vcake/vue-hooks`实现基于`Vue3 composition API`的 hooks 函数集
+- `@xus/vue-reuse`实现基于`Vue3 composition API`的 hooks 函数集
 
 ```JavaScript
 // 安装依赖
-npm install @vcake/vue-hooks @xuguo/sku vue-demi
+npm install @xus/vue-reuse @xuguo/sku vue-demi
 // 如果您使用的是vue2.x 您还需要安装并使用 composition API
 npm install @vue/composition-api
 
 // 使用
-import { useScroll } from '@vcake/vue-hooks'
+import { useScroll } from '@xus/vue-reuse'
 ```

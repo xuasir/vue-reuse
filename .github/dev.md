@@ -18,8 +18,8 @@
 
    ```
    |-doc
-   	|-sideEffct
-   		|-useDebounceFn.md
+    |-sideEffct
+     |-useDebounceFn.md
    ```
 
    `useDebounceFn` 被归纳到 `sideEffect` 类别之中，所以在 `sideEffect` 下创建相应的 `.md` 文档，这是第一步；
@@ -28,8 +28,8 @@
 
    ```js
    |-doc
-   	|-.vuepress
-   		|-config
+    |-.vuepress
+     |-config
 
    // config.js
    sidebar: {
@@ -54,9 +54,9 @@
 
    ```js
    |-doc
-   	|-.vuepress
-   		|-components
-   			|-useDebounceFn.vue
+    |-.vuepress
+     |-components
+      |-useDebounceFn.vue
    ```
 
    在这个 `.vue` 文件中我们基于 `vue2` + `composition api` 的形式来编写示例。
@@ -86,7 +86,7 @@
    </template>
    <script>
    import { ref } from '@vue/composition-api'
-   import { useDebounceFn } from '@vcake/vue-hooks'
+   import { useDebounceFn } from '@xus/vue-reuse'
    export default {
      name: 'use-debounce-fn',
      setup() {
@@ -103,7 +103,7 @@
    </script>
    ```
 
-   我们仅需要通过 `@vcake/vue-hooks` 引入的形式拿到我们实时编写的 `hook` 函数。
+   我们仅需要通过 `@xus/vue-reuse` 引入的形式拿到我们实时编写的 `hook` 函数。
 
 通过以上三个个问题基本能将基于文档开发如何进行的流程表达清楚，我们通过一个示例代码来驱动 `hooks` 的开发的模式和业务开发较为形似。
 
@@ -121,7 +121,7 @@
 
      ```js
      |-__test__
-     	|-useDebounceFn.spec.ts
+      |-useDebounceFn.spec.ts
      ```
 
      通过 `yarn test -o -w` / `npm run test -o -w` 来启动测试系统。

@@ -43,7 +43,7 @@ async function ensureVersion() {
   if (pkgJson.private) {
     return
   }
-  step(`ensure version for ${chalk.yellow(`vue-hooks`)}`)
+  step(`ensure version for ${chalk.yellow(`vue-reuse`)}`)
   const { release } = await prompt({
     type: 'select',
     name: 'release',
@@ -163,7 +163,7 @@ async function pubilshPackage(nextVersion) {
       }
     )
     console.log(
-      chalk.green(`Successfully published @vcake/vue-hooks v${nextVersion}`)
+      chalk.green(`Successfully published @xus/vue-reuse v${nextVersion}`)
     )
   } catch (e) {
     console.log()

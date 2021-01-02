@@ -1,14 +1,14 @@
 const path = require('path')
 module.exports = {
-  title: 'vue-hooks',
+  title: 'vue-reuse',
   description: 'vue hooks based composition API',
   plugins: ['@vuepress/back-to-top'],
   dest: 'doc-dist',
-  base: process.env.DOCS_BASE || '/vue-hooks/',
+  base: process.env.DOCS_BASE || '/vue-reuse/',
   configureWebpack: {
     resolve: {
       alias: {
-        '@vcake/vue-hooks': path.resolve(__dirname, '../../src/index.ts')
+        '@xus/vue-reuse': path.resolve(__dirname, '../../src/index.ts')
       },
       extensions: ['.ts', '.js', '.styl']
     },
@@ -24,8 +24,8 @@ module.exports = {
   },
   // head: [],
   themeConfig: {
-    repo: 'xuguo-code/vue-hooks',
-    docsRepo: 'xuguo-code/vue-hooks',
+    repo: 'xus-code/vue-reuse',
+    docsRepo: 'xus-code/vue-reuse',
     logo: '/imgs/logo.png',
     docsDir: 'docs',
     editLinks: false,

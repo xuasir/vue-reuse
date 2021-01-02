@@ -1,12 +1,12 @@
-# vue-hooks
+# vue-reuse
 
 ##### 基于 composition-api 的 hooks 函数库
 
-![Lint Test](https://github.com/xuguo-code/vue-hooks/workflows/Lint%20Test%20CI/badge.svg)
-[![Build Status](https://travis-ci.org/xuguo-code/vue-hooks.svg?branch=master)](https://travis-ci.org/xuguo-code/vue-hooks)
-![Deploy Docs](https://github.com/xuguo-code/vue-hooks/workflows/Deploy%20Doc%20CI/badge.svg)
-[![license scan](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fxuguo-code%2Fvue-hooks.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fxuguo-code%2Fvue-hooks?ref=badge_shield)
-[![codecov](https://codecov.io/gh/xuguo-code/vue-hooks/branch/master/graph/badge.svg?token=PM1K5156D2)](https://codecov.io/gh/xuguo-code/vue-hooks)
+![Lint Test](https://github.com/xus-code/vue-reuse/workflows/Lint%20Test%20CI/badge.svg)
+[![Build Status](https://travis-ci.org/xus-code/vue-reuse.svg?branch=master)](https://travis-ci.org/xus-code/vue-reuse)
+![Deploy Docs](https://github.com/xus-code/vue-reuse/workflows/Deploy%20Doc%20CI/badge.svg)
+[![license scan](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fxus-code%2Fvue-reuse.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fxus-code%2Fvue-reuse?ref=badge_shield)
+[![codecov](https://codecov.io/gh/xus-code/vue-reuse/branch/master/graph/badge.svg?token=PM1K5156D2)](https://codecov.io/gh/xus-code/vue-reuse)
 
 ## 特性
 
@@ -26,7 +26,7 @@
 
 当前项目采用独立 `npm` 包的形式来管理，基于 `ts` 开发；
 
-1. `docs` 中使用的是 `vuepress` 来构建文档项目，每个不同文件夹放置不同分类中的 `vue-hooks` 文档，
+1. `docs` 中使用的是 `vuepress` 来构建文档项目，每个不同文件夹放置不同分类中的 `vue-reuse` 文档，
    可参照现有案例编写。
 
 2. `__test__` 中存放相应 `hooks` 的测试用例，如果遇到复杂 `hooks` 请在 `__test__` 下建立相应的文件夹。
@@ -41,8 +41,8 @@
 
 提交信息请严格遵循 `angular` 团队风格，通过交互式的方式来创建（会在 `git-hooks` 中进行校验拦截）
 
-#### [`gitflows规范`](https://github.com/xuguo-code/vue-hooks/blob/master/.github/gitflows.md)
+#### [`gitflows规范`](https://github.com/xus-code/vue-reuse/blob/master/.github/gitflows.md)
 
-#### [`API规范`](https://github.com/xuguo-code/vue-hooks/blob/master/.github/API.md)
+#### [`API规范`](https://github.com/xus-code/vue-reuse/blob/master/.github/API.md)
 
-#### [`开发指南`](https://github.com/xuguo-code/vue-hooks/blob/master/.github/dev.md)
+#### [`开发指南`](https://github.com/xus-code/vue-reuse/blob/master/.github/dev.md)

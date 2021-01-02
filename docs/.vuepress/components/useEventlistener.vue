@@ -7,7 +7,7 @@
 
 <script>
 import { ref } from '@vue/composition-api'
-import { useEventListener } from '@vcake/vue-hooks'
+import { useEventListener } from '@xus/vue-reuse'
 export default {
   name: 'use-eventlisener',
   setup() {

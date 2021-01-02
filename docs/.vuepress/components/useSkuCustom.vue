@@ -17,7 +17,7 @@
 </template>
 <script>
 import { MockDataCustomKey, spuOpt, generateSku } from '../mock'
-import { useSku } from '@vcake/vue-hooks'
+import { useSku } from '@xus/vue-reuse'
 export default {
   name: 'use-sku-custom',
   setup() {

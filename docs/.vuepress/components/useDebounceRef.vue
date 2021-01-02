@@ -5,7 +5,7 @@
   </div>
 </template>
 <script>
-import { useDebounceRef } from '@vcake/vue-hooks'
+import { useDebounceRef } from '@xus/vue-reuse'
 export default {
   name: 'use-debounce-ref',
   setup() {

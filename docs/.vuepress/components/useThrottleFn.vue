@@ -6,7 +6,7 @@
 </template>
 <script>
 import { ref } from '@vue/composition-api'
-import { useThrottleFn } from '@vcake/vue-hooks'
+import { useThrottleFn } from '@xus/vue-reuse'
 export default {
   name: 'use-throttle-fn',
   setup() {

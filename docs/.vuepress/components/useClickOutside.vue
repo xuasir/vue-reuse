@@ -6,7 +6,7 @@
 </template>
 <script>
 import { ref } from '@vue/composition-api'
-import { useClickOutside } from '@vcake/vue-hooks'
+import { useClickOutside } from '@xus/vue-reuse'
 export default {
   name: 'use-click-outside',
   setup() {

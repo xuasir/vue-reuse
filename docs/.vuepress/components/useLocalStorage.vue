@@ -6,7 +6,7 @@
 </template>
 <script>
 import { ref } from '@vue/composition-api'
-import { useLocalStorage } from '@vcake/vue-hooks'
+import { useLocalStorage } from '@xus/vue-reuse'
 export default {
   name: 'use-local-storage',
   setup() {

@@ -29,7 +29,7 @@
   </div>
 </template>
 <script>
-import { useHistoryTravel } from '@vcake/vue-hooks'
+import { useHistoryTravel } from '@xus/vue-reuse'
 import { reactive, ref } from '@vue/composition-api'
 
 export default {

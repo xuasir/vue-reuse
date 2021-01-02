@@ -9,17 +9,17 @@ const pkgJson = require(resolve('./package.json'))
 
 const outputConfigMap = {
   esm: {
-    file: resolve(`dist/vue.hooks.esm.js`),
+    file: resolve(`dist/vue.reuse.esm.js`),
     format: 'es',
   },
   cjs: {
-    file: resolve(`dist/vue.hooks.cjs.js`),
+    file: resolve(`dist/vue.reuse.cjs.js`),
     format: 'cjs',
   },
   umd: {
-    file: resolve(`dist/vue.hooks.js`),
+    file: resolve(`dist/vue.reuse.js`),
     format: 'umd',
-    name: 'VueHooks'
+    name: 'VueReuse'
   },
 }
 
@@ -35,7 +35,7 @@ needBuildTypes &&
   RollupConfigs.push({
     input: resolve(`dist/src/index.d.ts`),
     output: {
-      file: resolve(`dist/vue.hooks.d.ts`),
+      file: resolve(`dist/vue.reuse.d.ts`),
       format: 'es',
     },
     plugins: [dts()],
@@ -72,7 +72,7 @@ function createConfig(format, output) {
   ]
   // node plugins
   const nodePlugins =
-  format === 'cjs'
+    format === 'cjs'
       ? []
       : [
         require('@rollup/plugin-node-resolve').nodeResolve({
@@ -83,17 +83,17 @@ function createConfig(format, output) {
         }),
       ]
   // prod plugins
-  const prodPlugins = 
-  process.env.NODE_ENV === 'production'
-  ? [
-    require('rollup-plugin-terser').terser({
-      module: format === 'esm',
-      compress: {
-        ecma: 2015,
-      },
-    })
-  ]
-  : []
+  const prodPlugins =
+    process.env.NODE_ENV === 'production'
+      ? [
+        require('rollup-plugin-terser').terser({
+          module: format === 'esm',
+          compress: {
+            ecma: 2015,
+          },
+        })
+      ]
+      : []
 
   return {
     input: resolve('src/index.ts'),

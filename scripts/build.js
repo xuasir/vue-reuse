@@ -17,7 +17,7 @@ async function run() {
   }
   // 环境信息
   const env = prod ? 'production' : 'development'
-  console.info(chalk.bold(chalk.yellow(`Rollup for vue-hooks`)))
+  console.info(chalk.bold(chalk.yellow(`Rollup for vue-reuse`)))
   await execa(
     'rollup',
     [
@@ -36,7 +36,7 @@ async function run() {
       stdio: 'inherit',
     }
   )
-  
+
   fs.remove(resolve(`dist/src`))
 }
 

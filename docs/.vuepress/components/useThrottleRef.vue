@@ -6,7 +6,7 @@
 </template>
 <script>
 import { ref } from '@vue/composition-api'
-import { useThrottleRef } from '@vcake/vue-hooks'
+import { useThrottleRef } from '@xus/vue-reuse'
 export default {
   name: 'use-throttle-ref',
   setup() {

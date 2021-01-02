@@ -6,7 +6,7 @@
 </template>
 <script>
 import { ref } from '@vue/composition-api'
-import { useDebounceFn } from '@vcake/vue-hooks'
+import { useDebounceFn } from '@xus/vue-reuse'
 export default {
   name: 'use-debounce-fn',
   setup() {

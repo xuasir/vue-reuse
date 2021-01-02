@@ -25,7 +25,7 @@
 </template>
 <script>
 import { ref } from '@vue/composition-api'
-import { useDrag, useDrop } from '@vcake/vue-hooks'
+import { useDrag, useDrop } from '@xus/vue-reuse'
 export default {
   name: 'use-drop',
   setup() {

@@ -1,10 +1,10 @@
 {
-  "name": "@vcake/vue-hooks",
-  "description": "composition-api hooks",
+  "name": "@xus/vue-reuse",
+  "description": "composition-api functions reuse your code",
   "version": "0.5.2",
-  "main": "dist/vue.hooks.cjs.js",
-  "module": "dist/vue.hooks.esm.js",
-  "types": "dist/vue.hooks.d.ts",
+  "main": "dist/vue.reuse.cjs.js",
+  "module": "dist/vue.reuse.esm.js",
+  "types": "dist/vue.reuse.d.ts",
   "files": [
     "dist"
   ],
@@ -42,7 +42,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xuguo-code/vue-hooks.git"
+    "url": "git+https://github.com/xus-code/vue-reuse.git"
   },
   "keywords": [
     "vue",
@@ -54,9 +54,9 @@
   "author": "xuguo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xuguo-code/vue-hooks/issues"
+    "url": "https://github.com/xus-code/vue-reuse/issues"
   },
-  "homepage": "https://github.com/xuguo-code/vue-hooks#readme",
+  "homepage": "https://github.com/xus-code/vue-reuse#readme",
   "sideEffects": false,
   "external": [
     "vue"

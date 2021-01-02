@@ -6,7 +6,7 @@
 </template>
 <script>
 import { ref } from '@vue/composition-api'
-import { useSessionStorage } from '@vcake/vue-hooks'
+import { useSessionStorage } from '@xus/vue-reuse'
 export default {
   name: 'use-session-storage',
   setup() {

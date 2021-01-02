@@ -23,7 +23,7 @@
   </div>
 </template>
 <script>
-import { useVirtualList } from '@vcake/vue-hooks'
+import { useVirtualList } from '@xus/vue-reuse'
 import {
   isReactive,
   reactive,

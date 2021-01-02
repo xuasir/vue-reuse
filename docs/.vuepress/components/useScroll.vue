@@ -5,7 +5,7 @@
   </div>
 </template>
 <script>
-import { useScroll } from '@vcake/vue-hooks'
+import { useScroll } from '@xus/vue-reuse'
 export default {
   name: 'use-scroll',
   setup() {
