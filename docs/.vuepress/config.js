@@ -69,6 +69,7 @@ module.exports = {
             ['state/useHistoryTravel', 'useHistoryTravel'],
             ['state/useLocalStorage', 'useLocalStorage'],
             ['state/useSessionStorage', 'useSessionStorage'],
+            ['state/useBoolean', 'useBoolean'],
           ],
         },
         {
