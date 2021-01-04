@@ -18,8 +18,8 @@ describe('test useBoolean', () => {
     expect(state.value).toBe(!state)
   })
 
-  test('test state and actions', async () => {
-    let options: {
+  test('test options judge', async () => {
+    const options: {
       [propName: string]: boolean
     } = reactive({
       0: true,
@@ -55,4 +55,5 @@ describe('test useBoolean', () => {
 
     expect(state.value).toBe(false)
   })
+
 })
