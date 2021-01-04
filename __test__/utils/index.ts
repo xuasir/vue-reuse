@@ -18,8 +18,16 @@ export function renderComposable(
   )
 }
 
-export function nextTask(fn: noop): void {
-  setTimeout(fn)
+export function nextTask(fn: noop, wait = 0): void {
+  setTimeout(fn, wait)
+}
+
+export function waitTime(time = 0): Promise<void> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve()
+    }, time)
+  })
 }
 
 export const nextTick: () => Promise<void> = () => Promise.resolve().then()
