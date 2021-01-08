@@ -1,16 +1,15 @@
 import { Ref } from 'vue-demi'
-// type SomeToRefs<T, K extends keyof T> = {
-//   [P in keyof T]: P extends K ? T[P] : Ref<T[P] | undefined>
-// }
 type ToRefs<T> = {
   [P in keyof T]: Ref<T[P]>
 }
 export type noop = (...args: any[]) => any
 
 // ------------- useRequest ------------- //
-
-export type RequestService = string | { url: string; [key: string]: any }
-export type CombineService<R, P extends any[]> = RequestService | Service<R, P>
+export type RequestService<P extends any[]> =
+  | string
+  | { url: string; [key: string]: any }
+  | ((...args: P) => string)
+  | ((...args: P) => { url: string; [key: string]: any })
 
 export interface BaseRequestOptions<R, P extends any[]> {
   defaultLoading?: boolean
@@ -33,8 +32,34 @@ export interface BaseRequestOptions<R, P extends any[]> {
   cacheTime?: number
   fetchKey?: (...args: P) => string
 }
-export type RequestOptions<R, P extends any[]> = {
-  requestMethod?: (service: any) => Promise<any>
+
+export type BaseRequestOptionsWithFormat<
+  R,
+  P extends any[],
+  U,
+  UU extends U
+> = {
+  formatResult: (res: R) => U
+} & BaseRequestOptions<UU, P>
+
+// custom request
+export type RequestOptionsWithFormat<
+  R,
+  P extends any[],
+  U,
+  UU extends U,
+  S extends RequestService<P>
+> = {
+  requestMethod?: S extends (...args: P) => infer T
+    ? (param: T) => Promise<R>
+    : (param: S, ...args: P) => Promise<R>
+  formatResult: (res: R) => U
+} & BaseRequestOptions<UU, P>
+
+export type RequestOptions<R, P extends any[], S extends RequestService<P>> = {
+  requestMethod?: S extends (...args: any[]) => infer T
+    ? (param: T) => Promise<R>
+    : (param: S, ...args: P) => Promise<R>
 } & BaseRequestOptions<R, P>
 
 // ------------- Fetch ------------- //
