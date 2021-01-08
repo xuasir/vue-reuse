@@ -20,3 +20,24 @@ Object.defineProperty(window, 'localStorage', {
 Object.defineProperty(window, 'sessionStorage', {
   value: sessionStorageMock
 })
+
+// ---- patch fetch
+Object.defineProperty(window, 'fetch', {
+  value: (url: string, { error }: { error: string } = { error: '' }) =>
+    new Promise((resolve) => {
+      const res = error
+        ? {
+            ok: false,
+            statusText: error
+          }
+        : {
+            ok: true,
+            json() {
+              return url
+            }
+          }
+      setTimeout(() => {
+        resolve(res)
+      }, 100)
+    })
+})
