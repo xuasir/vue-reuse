@@ -9,15 +9,18 @@ import {
   FetchResult
 } from './utils/types'
 import { Fetch } from './utils/fetch'
+import { getCache, setCache } from './utils/cache'
 import {
   onMounted,
   onUnmounted,
   shallowReactive,
   shallowRef,
-  toRefs
+  toRefs,
+  // watch,
+  watchEffect
 } from 'vue-demi'
 
-const DEFAULT_KEY = 'xu_default_fetch'
+const DEFAULT_KEY = 'vue_reuse_request_default_fetch_key'
 
 export function useAsync<R, P extends any[], U, UU extends U>(
   service: Service<R, P>,
@@ -48,21 +51,21 @@ export function useAsync<R, P extends any[], U, UU extends U>(
     defaultParams = [],
     manual,
     // cache and key
-    fetchKey
-    // cacheKey,
-    // cacheTime
+    fetchKey,
+    cacheKey,
+    cacheTime
   } = _opts
 
-  // 抹平类型差异 hack
+  // types patch
   const serve = service as any
-  const initalData = defaultData as UU
-  const initalParams = defaultParams as P
+  const initialData = defaultData as UU
+  const initialParams = defaultParams as P
   let formatResult: any
   if ('formatResult' in _opts) {
     formatResult = _opts.formatResult
   }
 
-  // formatdata
+  // fetch config
   const fetchConfig = {
     formatResult,
     onSuccess: onSuccess as (data: UU, params: P) => void,
@@ -74,12 +77,11 @@ export function useAsync<R, P extends any[], U, UU extends U>(
     loadingDelay
   }
 
-  // cache fetch.result
   const fetches = shallowReactive<Fetches<UU, P>>({})
   const [curFetchResult, setCurFetchResult] = useFetchResult<UU, P>({
-    data: initalData,
+    data: initialData,
     loading: defaultLoading,
-    params: initalParams,
+    params: initialParams,
     error: undefined,
     cancel: noopFn('cancel'),
     refresh: noopFn('refresh') as () => Promise<UU>
@@ -89,8 +91,37 @@ export function useAsync<R, P extends any[], U, UU extends U>(
     setCurFetchResult(data)
     fetches[key] = data
   }
+  // get fetches from cache
+  if (cacheKey) {
+    const cached = getCache(cacheKey)
+    if (cached?.data) {
+      const cacheFetches = (cached.data?.fetches || {}) as Fetches<UU, P>
+      Object.keys(cacheFetches).forEach((key) => {
+        const fetch = new Fetch(serve, fetchConfig, subscribe.bind(null, key), {
+          loading: cacheFetches[key].loading,
+          data: cacheFetches[key].data,
+          params: cacheFetches[key].params as P
+        })
+        fetches[key] = fetch.result
+      })
+      curFetchKey.value = cached.data?.fetchKey || DEFAULT_KEY
+      setCurFetchResult(fetches[curFetchKey.value])
+    }
+  }
 
-  // cache
+  // set fetches to cache
+  watchEffect(() => {
+    if (cacheKey && cacheTime) {
+      setCache(
+        cacheKey,
+        {
+          fetches: fetches,
+          fetchKey: curFetchKey.value
+        },
+        cacheTime
+      )
+    }
+  })
 
   const run = (...args: P) => {
     if (fetchKey) {
@@ -104,8 +135,8 @@ export function useAsync<R, P extends any[], U, UU extends U>(
         subscribe.bind(null, curFetchKey.value),
         {
           loading: defaultLoading,
-          params: initalParams,
-          data: initalData
+          params: initialParams,
+          data: initialData
         }
       )
       curFetch = fetches[curFetchKey.value] = fetch.result
@@ -126,7 +157,7 @@ export function useAsync<R, P extends any[], U, UU extends U>(
   onMounted(() => {
     if (!manual) {
       // 默认执行
-      run(...initalParams)
+      run(...initialParams)
     }
   })
 
