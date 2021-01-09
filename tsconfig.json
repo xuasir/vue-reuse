@@ -1,7 +1,7 @@
 {
   "include": ["src/", "__test__/"],
   "compilerOptions": {
-    "target": "esnext",
+    "target": "es5",
     "module": "esnext",
     "moduleResolution": "node",
     "esModuleInterop": true,
