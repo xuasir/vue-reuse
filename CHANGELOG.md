@@ -1,3 +1,15 @@
+# [0.6.0](https://github.com/xus-code/vue-reuse/compare/v0.5.2...v0.6.0) (2021-01-09)
+
+
+### Features
+
+* **request:** 添加request缓存能力 ([17d4c13](https://github.com/xus-code/vue-reuse/commit/17d4c1300356b8b701f3cb53e27834d189cc7c28))
+* **request:** 新增userequest复用函数 ([27b7cf9](https://github.com/xus-code/vue-reuse/commit/27b7cf97b672db14406e1d9fed77da2f45eba1fa))
+* **src/useBoolean:** 新增boolean功能集合 ([4109e90](https://github.com/xus-code/vue-reuse/commit/4109e907b2ffe2c03e455a6024941bbc692e7ad0))
+* **src/useBoolean:** 修复boolean功能的类型推导 ([214a735](https://github.com/xus-code/vue-reuse/commit/214a735ac01fe2c03ba51be295d051eb008582fa))
+
+
+
 ## [0.5.2](https://github.com/xus-code/vue-reuse/compare/v0.5.1...v0.5.2) (2021-01-01)
 
 ### Bug Fixes
