@@ -1,7 +1,7 @@
 {
   "name": "@xus/vue-reuse",
   "description": "composition-api functions reuse your code",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "main": "dist/vue.reuse.cjs.js",
   "module": "dist/vue.reuse.esm.js",
   "types": "dist/vue.reuse.d.ts",
