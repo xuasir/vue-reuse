@@ -16,7 +16,13 @@ module.exports = {
       rules: [
         {
           test: /\.tsx?$/,
-          use: 'babel-loader',
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-typescript'],
+              plugins: ['@babel/plugin-proposal-class-properties']
+            }
+          },
           exclude: /node_modules/,
         },
       ],
@@ -38,6 +44,13 @@ module.exports = {
     sidebar: {
       '/': [
         ['info/', '指南'],
+        {
+          title: 'async',
+          collapsable: false,
+          children: [
+            ['async/useRequest', 'useRequest'],
+          ],
+        },
         {
           title: 'UI',
           collapsable: false,
