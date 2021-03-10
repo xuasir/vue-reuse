@@ -38,7 +38,7 @@ module.exports = {
     nav: [
       { text: '国内镜像', link: 'https://a-sir.gitee.io/vue-reuse' },
       {
-        text: '我有问题',
+        text: '我有疑问',
         link: 'https://github.com/xuguo-code/vue-reuse/issues'
       },
       { text: 'vue3源码分析', link: 'http://xuguo.xyz/vue3-anaylsis' }
