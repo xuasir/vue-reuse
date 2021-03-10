@@ -23,11 +23,19 @@ module.exports = {
               plugins: ['@babel/plugin-proposal-class-properties']
             }
           },
-          exclude: /node_modules/,
-        },
-      ],
+          exclude: /node_modules/
+        }
+      ]
     }
   },
+  nav: [
+    { text: '国内镜像', link: 'https://a-sir.gitee.io/vue-reuse' },
+    {
+      text: '我有问题',
+      link: 'https://github.com/xuguo-code/vue-reuse/issues'
+    },
+    { text: 'vue3源码分析', link: 'http://xuguo.xyz/vue3-anaylsis' }
+  ],
   // head: [],
   themeConfig: {
     repo: 'xus-code/vue-reuse',
@@ -47,24 +55,20 @@ module.exports = {
         {
           title: 'async',
           collapsable: false,
-          children: [
-            ['async/useRequest', 'useRequest'],
-          ],
+          children: [['async/useRequest', 'useRequest']]
         },
         {
           title: 'UI',
           collapsable: false,
           children: [
             ['UI/useDrop', 'useDrop'],
-            ['UI/useVirtualList', 'useVirtualList'],
-          ],
+            ['UI/useVirtualList', 'useVirtualList']
+          ]
         },
         {
           title: 'work',
           collapsable: false,
-          children: [
-            ['work/useSku', 'useSku'],
-          ],
+          children: [['work/useSku', 'useSku']]
         },
         {
           title: 'Event',
@@ -72,8 +76,8 @@ module.exports = {
           children: [
             ['event/useEventlistener', 'useEventlistener'],
             ['event/useClickOutside', 'useClickOutside'],
-            ['event/useScroll', 'useScroll'],
-          ],
+            ['event/useScroll', 'useScroll']
+          ]
         },
         {
           title: 'State',
@@ -82,8 +86,8 @@ module.exports = {
             ['state/useHistoryTravel', 'useHistoryTravel'],
             ['state/useLocalStorage', 'useLocalStorage'],
             ['state/useSessionStorage', 'useSessionStorage'],
-            ['state/useBoolean', 'useBoolean'],
-          ],
+            ['state/useBoolean', 'useBoolean']
+          ]
         },
         {
           title: 'sideEffect',
@@ -92,10 +96,10 @@ module.exports = {
             ['sideEffect/useDebounceRef', 'useDebounceRef'],
             ['sideEffect/useDebounceFn', 'useDebounceFn'],
             ['sideEffect/useThrottleRef', 'useThrottleRef'],
-            ['sideEffect/useThrottleFn', 'useThrottleFn'],
-          ],
-        },
-      ],
-    },
-  },
+            ['sideEffect/useThrottleFn', 'useThrottleFn']
+          ]
+        }
+      ]
+    }
+  }
 }
