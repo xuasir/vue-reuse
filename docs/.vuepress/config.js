@@ -28,14 +28,6 @@ module.exports = {
       ]
     }
   },
-  nav: [
-    { text: '国内镜像', link: 'https://a-sir.gitee.io/vue-reuse' },
-    {
-      text: '我有问题',
-      link: 'https://github.com/xuguo-code/vue-reuse/issues'
-    },
-    { text: 'vue3源码分析', link: 'http://xuguo.xyz/vue3-anaylsis' }
-  ],
   // head: [],
   themeConfig: {
     repo: 'xus-code/vue-reuse',
@@ -44,10 +36,12 @@ module.exports = {
     docsDir: 'docs',
     editLinks: false,
     nav: [
+      { text: '国内镜像', link: 'https://a-sir.gitee.io/vue-reuse' },
       {
-        text: '指南',
-        link: '/info/'
-      }
+        text: '我有问题',
+        link: 'https://github.com/xuguo-code/vue-reuse/issues'
+      },
+      { text: 'vue3源码分析', link: 'http://xuguo.xyz/vue3-anaylsis' }
     ],
     sidebar: {
       '/': [
