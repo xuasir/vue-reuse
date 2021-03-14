@@ -14,7 +14,9 @@
       @scroll="containeProps.onScroll"
     >
       <div :style="wrapperProps.style">
-        <span class="item" v-for="v in list">item {{ v.index }}</span>
+        <span class="item" v-for="(v, i) in list" :key="i"
+          >item {{ v.index }}</span
+        >
       </div>
     </div>
     <div class="add">
@@ -35,7 +37,7 @@ import {
 export default {
   name: 'use-virtual-list',
   setup() {
-    const rawList = ref(Array.from(Array(100).keys()))
+    const rawList = ref(Array.from(Array(3000).keys()))
     const {
       list,
       wrapperProps,
@@ -43,7 +45,8 @@ export default {
       containeRef,
       scrollTo
     } = useVirtualList(rawList, {
-      itemHeight: 50
+      itemHeight: 50,
+      overscan: 30
     })
 
     function addTen() {
