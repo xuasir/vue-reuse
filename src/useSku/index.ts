@@ -3,7 +3,7 @@ import {
   createSkuSelector,
   SpecInstanceType,
   SpecLineInstanceType,
-  SpuOps,
+  SpuOps
 } from '@xuguo/sku'
 
 type SKU = {
@@ -24,6 +24,6 @@ export function useSku<T>(spu: SpuList<T>, spuOps?: Partial<SpuOps>): SKU {
   }
   return {
     specTap,
-    skuList,
+    skuList
   }
 }

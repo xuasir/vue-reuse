@@ -40,7 +40,7 @@ function getProps(callback: CallbackFn, isHovering: Ref<boolean>): DropProps {
     onPaste(evt) {
       evt.preventDefault()
       callback(evt.clipboardData!, evt)
-    },
+    }
   }
 }
 

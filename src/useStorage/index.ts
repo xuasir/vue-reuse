@@ -73,7 +73,7 @@ export function useStorage<
     },
     {
       flush: 'post',
-      deep: true,
+      deep: true
     }
   )
 

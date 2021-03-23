@@ -6,7 +6,7 @@ import {
   getCurrentInstance,
   onUnmounted,
   computed,
-  ComputedRef,
+  ComputedRef
 } from 'vue-demi'
 
 type OptionalUnwrapRef<T> = UnwrapRef<T> | undefined
@@ -27,7 +27,7 @@ type TravelState<T> = {
 
 enum UpdateStateFrom {
   GO,
-  USER,
+  USER
 }
 
 function dumpIndex(step: number, arr: any[]) {
@@ -46,7 +46,7 @@ function split<T>(step: number, arr: T[]) {
   return {
     _before: arr.slice(0, index),
     _after: arr.slice(index + 1),
-    _current: arr[index],
+    _current: arr[index]
   }
 }
 
@@ -57,7 +57,7 @@ export function useHistoryTravel<T>(initialValue?: T): ReturnValue<T> {
   let updateFrom: UpdateStateFrom = UpdateStateFrom.USER
   const travelState: TravelState<OptionalUnwrapRef<T>> = {
     past: [],
-    future: [],
+    future: []
   }
 
   function updatePast(oldState: OptionalUnwrapRef<T>[], fullUpdate = false) {
@@ -131,6 +131,6 @@ export function useHistoryTravel<T>(initialValue?: T): ReturnValue<T> {
     forward: () => go(1),
     back: () => go(-1),
     backLength: computed(() => _backLength.value),
-    forwardLength: computed(() => _forwardLength.value),
+    forwardLength: computed(() => _forwardLength.value)
   }
 }

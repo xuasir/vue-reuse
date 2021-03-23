@@ -24,7 +24,7 @@ export function useScroll(dom: Dom): [Readonly<Pos>]
 export function useScroll(dom: Dom = isBrowser ? document : undefined): any {
   const position = reactive({
     x: 0,
-    y: 0,
+    y: 0
   })
   const el = ref<null | HTMLElement>(null)
 
