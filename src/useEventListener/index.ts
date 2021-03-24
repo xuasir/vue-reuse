@@ -33,12 +33,12 @@ export function useEventListener(
     element.addEventListener(type, handler, {
       capture: options?.capture,
       once: options?.once,
-      passive: options?.passive,
+      passive: options?.passive
     })
   })
   onUnmounted(() => {
     element.removeEventListener(type, handler, {
-      capture: options?.capture,
+      capture: options?.capture
     })
   })
 
