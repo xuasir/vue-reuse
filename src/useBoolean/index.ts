@@ -11,7 +11,7 @@ type changeStateType = (value?: Primitive) => void
 
 type Actions = {
   setTrue: () => void
-  setFalse: () => void,
+  setFalse: () => void
   changeState: changeStateType
 }
 
