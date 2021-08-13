@@ -18,7 +18,7 @@ describe('test history travel', () => {
       backLength,
       forwardLength,
       back,
-      forward,
+      forward
     } = useHistoryTravel(1)
     expect(isRef(current)).toBeTruthy()
     expect(current.value).toBe(1)
@@ -57,5 +57,14 @@ describe('test history travel', () => {
     expect(current.value).toBe(4)
     expect(backLength.value).toBe(3)
     expect(forwardLength.value).toBe(0)
+  })
+
+  test('fix: the first, forward or go, the next, change current but not record to history', () => {
+    const { current, forward, backLength } = useHistoryTravel(7)
+    forward()
+    current.value = 77
+    expect(backLength.value).toBe(1)
+    current.value = 99
+    expect(backLength.value).toBe(2)
   })
 })

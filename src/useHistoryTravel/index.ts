@@ -82,7 +82,10 @@ export function useHistoryTravel<T>(initialValue?: T): ReturnValue<T> {
   }
 
   function _back(step = -1) {
-    if (travelState.past.length <= 0) return
+    if (travelState.past.length <= 0) {
+      updateFrom = UpdateStateFrom.USER
+      return
+    }
     const { _after, _current, _before } = split(step, travelState.past)
     updatePast(_before, true)
     updateFuture([..._after, current.value])
@@ -90,7 +93,10 @@ export function useHistoryTravel<T>(initialValue?: T): ReturnValue<T> {
   }
 
   function _forward(step = 1) {
-    if (travelState.future.length <= 0) return
+    if (travelState.future.length <= 0) {
+      updateFrom = UpdateStateFrom.USER
+      return
+    }
     const { _after, _current, _before } = split(step, travelState.future)
     updatePast([current.value, ..._before])
     updateFuture(_after, true)
